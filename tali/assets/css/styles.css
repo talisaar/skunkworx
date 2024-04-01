@@ -1,0 +1,32 @@
+/* define variables for the primary colors */
+/* use the variables */
+/* line 8, ../../scss/styles.scss */
+body {
+  background-color: #6f00ff;
+}
+
+/* line 11, ../../scss/styles.scss */
+h1 {
+  color: #ffe600;
+  font-family: verdana;
+  font-size: 300%;
+}
+
+/* line 16, ../../scss/styles.scss */
+p {
+  color: #ffe600;
+  font-family: courier;
+  font-size: 160%;
+  border: 2px solid #ffe600;
+  padding: 30px;
+  margin: 50px;
+}
+
+/* line 25, ../../scss/styles.scss */
+.city {
+  background-color: #2bf103;
+  color: #ffe600;
+  border: 2px solid #2bf103;
+  margin: 20px;
+  padding: 20px;
+}

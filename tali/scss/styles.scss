@@ -1,0 +1,32 @@
+/* define variables for the primary colors */
+$primary_1: #6f00ff;
+$primary_2: #ffe600;
+$primary_3: #2bf103;
+
+/* use the variables */
+
+body {
+    background-color: $primary_1;
+  }
+  h1 {
+    color: $primary_2;
+    font-family: verdana;
+    font-size: 300%;
+  }
+  p {
+    color: $primary_2;
+    font-family: courier;
+    font-size: 160%;
+    border: 2px solid $primary_2;
+    padding: 30px;
+    margin: 50px;
+  }
+  
+  .city {
+    background-color: $primary_3;
+    color: $primary_2;
+    border: 2px solid $primary_3;
+    margin: 20px;
+    padding: 20px;
+  }
+
