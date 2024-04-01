@@ -1,0 +1,12 @@
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'homepage/style.css' %}">
+
+{% if welcome %}
+    <ul>
+        {{welcome}}
+        <p> to view the polls app <a href="{% url 'polls:index' %}">click here</a></p>
+    </ul>
+{% else %}
+    <p>No WElcome message available.</p>
+{% endif %}

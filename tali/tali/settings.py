@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '13.49.149.193', 'skunkworx.co', 'www.skunkworx.co
 # Application definition
 
 INSTALLED_APPS = [
+    'homepage.apps.HomepageConfig',
     'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',

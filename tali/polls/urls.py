@@ -2,6 +2,9 @@ from django.urls import path
 
 from . import views
 
+# adding an app_name makes the below 'names' fall under the namespace polls - e.g polls.index, polls.detail etc.
+app_name = "polls"
+
 urlpatterns = [
     # ex: /polls/
     path("", views.index, name="index"),
