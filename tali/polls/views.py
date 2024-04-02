@@ -52,5 +52,10 @@ def vote(request, question_id):
         # with POST data. This prevents data from being posted twice if a
         # user hits the Back button.
 
-        # return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
-        return HttpResponseRedirect("/polls/" + str(question.id) + "/results")
+        # return HttpResponseRedirect("/polls/" + str(question.id) + "/results")
+
+        # Rather than hardcoding the url like above ^^ can use the 'reverse' function
+        # which will result in polls/question.id/results
+        # it is called 'reverse' becasue instead of the URL pointing to VIEW, we are 
+        #doing the opposite - a view is generating the URL. 
+        return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))

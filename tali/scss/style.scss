@@ -6,7 +6,8 @@ $primary_3: #2bf103;
 /* use the variables */
 
 body {
-    background-color: $primary_1;
+    background: white url("../img/dog.jpg") no-repeat;
+    // background-color: $primary_1;
   }
   h1 {
     color: $primary_2;
@@ -30,3 +31,17 @@ body {
     padding: 20px;
   }
 
+  li {
+    color: $primary_3;
+  }
+  li a {
+    color: $primary_3;
+}
+
+.vote_option {
+  color: $primary_3
+}
+
+a {
+  color: $primary_2
+}
