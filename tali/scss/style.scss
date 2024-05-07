@@ -1,20 +1,20 @@
 /* define variables for the primary colors */
-$primary_1: #6f00ff;
+$primary_1: #070992;
 $primary_2: #ffe600;
 $primary_3: #2bf103;
 
 /* use the variables */
 
 body {
-    background: white url("../img/dog.jpg") no-repeat;
-    // background-color: $primary_1;
+    // background: white url("../img/dog.jpg") no-repeat;
+    background-color: $primary_1;
   }
   h1 {
     color: $primary_2;
     font-family: verdana;
     font-size: 300%;
   }
-  p {
+  p, form {
     color: $primary_2;
     font-family: courier;
     font-size: 160%;

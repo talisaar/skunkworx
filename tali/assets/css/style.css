@@ -2,7 +2,7 @@
 /* use the variables */
 /* line 8, ../../scss/style.scss */
 body {
-  background: white url("../img/dog.jpg") no-repeat;
+  background-color: #070992;
 }
 
 /* line 12, ../../scss/style.scss */
@@ -13,7 +13,7 @@ h1 {
 }
 
 /* line 17, ../../scss/style.scss */
-p {
+p, form {
   color: #ffe600;
   font-family: courier;
   font-size: 160%;
