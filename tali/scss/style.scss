@@ -8,6 +8,10 @@ $primary_3: #2bf103;
 body {
     // background: white url("../img/dog.jpg") no-repeat;
     background-color: $primary_1;
+    position: relative;
+    display: block;
+    margin: 25px;
+
   }
   h1 {
     color: $primary_2;
@@ -15,12 +19,27 @@ body {
     font-size: 300%;
   }
   p, form {
+    position: relative;
+    display: block;
     color: $primary_2;
     font-family: courier;
     font-size: 160%;
     border: 2px solid $primary_2;
-    padding: 30px;
-    margin: 50px;
+    padding: 10px;
+    margin: 5 auto;
+    width: 50%;
+    text-align: center;
+
+  }
+  
+  input, button {
+    position: relative;
+    display: block;
+    margin : 5px auto;
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: large;
   }
   
   .city {
