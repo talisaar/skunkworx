@@ -1,7 +1,15 @@
 from django.shortcuts import render
 import logging
 import os.path
+from django.contrib.auth.tokens import PasswordResetTokenGenerator
+
+from django.conf import settings
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
+from email.mime.text import MIMEText
+import smtplib, ssl
+from email.mime.multipart import MIMEMultipart
+
 # Create your views here.
 
 from django.template import RequestContext
@@ -48,4 +56,55 @@ class UserViewSet(viewsets.ModelViewSet):
             password=password,
             first_name=first_name,
             last_name=last_name)
+        self.send_activation_email(new_user)
         return HttpResponse("User Created!")
+    
+    def send_activation_email(self, new_user):
+        sender_email = 'tali@skunkworx.co'
+        receiver_email = new_user.email
+
+        logger = logging.getLogger('activation_email')
+        logger.warning(f'sending email to {receiver_email}')
+
+        message = MIMEMultipart("alternative")
+        message["Subject"] = "Activate your SkunkW0rX account"
+        message["From"] = sender_email
+        message["To"] = receiver_email
+        name = new_user.first_name
+        body = """
+        Hello, {0}.
+        Pls click this link to activate your skunkworx account:
+        
+        # # # Here will be link # # #
+
+        Love, Tali
+        """.format(name)
+
+        message.attach(MIMEText(body, 'plain'))
+
+
+        # Create a secure SSL context
+        context = ssl.create_default_context()
+        # send the email with SES smtp
+
+        # server = smtplib.SMTP(SMTP_ENDPOINT, port=STARTTLS_PORT)
+        server = smtplib.SMTP_SSL(settings.SMTP_ENDPOINT, port=settings.TLS_WRAPPER_PORT)
+
+        server.set_debuglevel(1)
+
+        # server.connect(SMTP_ENDPOINT, port=STARTTLS_PORT)
+        server.connect(settings.SMTP_ENDPOINT, port=settings.TLS_WRAPPER_PORT)
+
+        # server.starttls() ### ONLY NEED THESE STEPS IF NOT USING THE SMTP_SSL OPTION
+        # server.helo()
+        # server.ehlo()
+
+        server.login(settings.SMTP_USER_NAME, settings.SMTP_PASSWORD)
+        # TODO: Send email here
+        txt = message.as_string()
+        server.sendmail(sender_email, receiver_email, txt)
+
+
+            # Send email ends here
+
+

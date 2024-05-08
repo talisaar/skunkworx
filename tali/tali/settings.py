@@ -151,3 +151,31 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "assets"),
 )
 
+
+
+####################################################################
+## EMAIL STUFF
+####################################################################
+
+# from django.conf import settings
+# from django.core.mail import send_mail
+# send_mail('a', 'a', 'tali@skunkworx.co', ['miggs.local@gmail.com'], fail_silently=False)
+
+# copied from ses_with_smptlib.py #
+
+IAM_USER_NAME = "tali@skunkworx.co"
+SMTP_USER_NAME = "AKIAYXPDTQ7GV5JRTJAR"
+SMTP_PASSWORD = "BEugYZq2yCD+PP4Sfb/Qwoq4UiZZzPZfM7Dr0OAKaNNF"
+SMTP_ENDPOINT = "email-smtp.us-west-2.amazonaws.com"
+
+STARTTLS_PORT = 587  # option 1: server.starttls()
+TLS_WRAPPER_PORT = 465 # option 2: server = smtplib.SMTP_SSL --- THIS ONE IS BETTER
+
+
+EMAIL_PORT = TLS_WRAPPER_PORT
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-0l6lb8r%3kclm=odn9c#=w^ku62v-tps@i(*wvcdz(-4vw&jcq'
