@@ -16,7 +16,7 @@ h1 {
 }
 
 /* line 21, ../../scss/style.scss */
-p, form {
+h2, form {
   position: relative;
   display: block;
   color: #ffe600;
@@ -29,7 +29,7 @@ p, form {
   text-align: center;
 }
 
-/* line 35, ../../scss/style.scss */
+/* line 34, ../../scss/style.scss */
 input, button {
   position: relative;
   display: block;
@@ -40,7 +40,7 @@ input, button {
   font-size: large;
 }
 
-/* line 45, ../../scss/style.scss */
+/* line 44, ../../scss/style.scss */
 .city {
   background-color: #2bf103;
   color: #ffe600;
@@ -49,22 +49,40 @@ input, button {
   padding: 20px;
 }
 
-/* line 53, ../../scss/style.scss */
+/* line 52, ../../scss/style.scss */
 li {
   color: #2bf103;
 }
 
-/* line 56, ../../scss/style.scss */
+/* line 55, ../../scss/style.scss */
 li a {
   color: #2bf103;
 }
 
-/* line 60, ../../scss/style.scss */
+/* line 59, ../../scss/style.scss */
 .vote_option {
   color: #2bf103;
 }
 
-/* line 64, ../../scss/style.scss */
+/* line 63, ../../scss/style.scss */
 a {
   color: #ffe600;
+}
+
+/* line 67, ../../scss/style.scss */
+p {
+  position: relative;
+  display: block;
+  margin: 5px auto;
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+  font-size: medium;
+  text-align: center;
+  color: white;
+}
+
+/* line 79, ../../scss/style.scss */
+td {
+  color: white;
 }

@@ -32,7 +32,6 @@ ALLOWED_HOSTS = ['127.0.0.1', '13.49.149.193', 'skunkworx.co', 'www.skunkworx.co
 
 INSTALLED_APPS = [
     'homepage.apps.HomepageConfig',
-    'polls.apps.PollsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,11 +52,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'tali.urls'
-
+import os
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -179,3 +178,11 @@ EMAIL_PORT = TLS_WRAPPER_PORT
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-0l6lb8r%3kclm=odn9c#=w^ku62v-tps@i(*wvcdz(-4vw&jcq'
+
+
+ACCOUNT_ACTIVATION_DAYS = 3
+
+REGISTRATION_OPEN = True
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login/login'

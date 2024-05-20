@@ -1,0 +1,10 @@
+<h2>POSTS PAGE</h2>
+<li> LOGGED IN USER: {{ user }}</li>
+<li> LOGGED IN USER: {{ user.email }}</li>
+<li> LOGGED IN USER: {{ user.first_name }}</li>
+<li> LOGGED IN USER: {{ user.last_name }}</li>
+<li> LOGGED IN USER: {{ user.password }}</li>
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>

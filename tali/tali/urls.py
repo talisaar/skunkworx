@@ -16,10 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.contrib.auth.views import LoginView
 
 urlpatterns = [
     # path receives 4 args: 'route':str, 'view', 'kwargs':dict, 'name' - unambiguous refrence (see example in polls.urls.py)
     path("", include("homepage.urls")),
-    path("polls/", include("polls.urls")),
     path("admin/", admin.site.urls),
+    path('login/', include('django.contrib.auth.urls')),  
+    # path('login/login/', LoginView.as_view(extra_context={'backend': 'homepage.backends.MyBackend'}), name='login'), 
 ]

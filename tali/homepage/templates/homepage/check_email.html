@@ -1,0 +1,20 @@
+{% load static %}
+
+<head>
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<script type="text/javascript" src="{% static 'js/signUpController.js' %}"></script>
+
+</head>
+<body ng-controller="signUpCtrl">
+    <h2> Click the link in the email sent to: <h2>{{ email }}</h2>
+    <h2> Wrong email? <a href="/">Start over</a>. </h2>
+
+    {% if user.is_authenticated %}
+    <li> LOGGED IN USER: {{ user }}</li>
+    {% else %}
+    <li>YOU ARE LOGGED OUT</li>
+    {% endif %}
+
+
+</body>
+

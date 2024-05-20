@@ -7,7 +7,7 @@
 <script type="text/javascript" src="{% static 'js/js.js' %}"></script>
 </head>
 <body>
-    <p> Sign up to SKunKw0rx</p>
+    <h2> Sign up to SKunKw0rx</h2>
     <form id="signup_form" method="POST" ng-app="signUpApp" ng-controller="signUpCtrl" autocomplete="off">
         {% csrf_token %}
         <input autocomplete="false" name="hidden" type="text" style="display:none;">
@@ -16,8 +16,10 @@
         <input type="email" ng-model="email" placeholder="email address" required="required" data-lpignore="true">
         <input type="password" id="password" ng-model="password" placeholder="create a password" required="required" data-lpignore="true">
         <input type="password" id="password_confirm" ng-model="password_confirm" placeholder="repeat password" required="required" data-lpignore="true" oninput="check()"/>
-        <button ng-click="signUp($event)">Sign up</button>
+        <button type="submit" ng-hide="hide_button" ng-click="signUp($event)">Sign up</button>
+        <p ng-hide="hide_processing_text" [disabled]="!ngForm.valid"> Signing up (takes a min...)</p>
+    </form>
+    <h2><a href="{% url 'login' %}">Log In</a></h2>
 
-    </form> 
 </body>
 

@@ -1,34 +1,54 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 import logging
 import os.path
-from django.contrib.auth.tokens import PasswordResetTokenGenerator
+from django.contrib.auth.views import LoginView
+from django.contrib import messages
 
 from django.conf import settings
-SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 from email.mime.text import MIMEText
-import smtplib, ssl
+import smtplib
 from email.mime.multipart import MIMEMultipart
 
-# Create your views here.
+from django.http import HttpResponse, HttpResponseRedirect
 
-from django.template import RequestContext
-from django.http import HttpResponse
-from django.template import loader
+from django_registration.backends.activation.views import RegistrationView, ActivationView
+from django.contrib.auth import login, logout
 
-# def index(request):
-#     return HttpResponse("Hello, world. You're at the homepage index.")
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 
 def index(request):
-    logger = logging.getLogger('poop')
-    logger.warning(f'request is: {request}')
+    if request.user.is_authenticated:
+        return render(request, "homepage/posts.html")
+    else:
+     return render(request, "homepage/index.html", {})
 
-    welcome = "My welcome text"
-    request_context = RequestContext(request)
-    request_context.push({"welcome": welcome})
+def check_email(request):
+    # any + in original email get parsed as white space in the URL - so returning these here
+    email = request.GET["email"].replace(' ', '+')
+    context = {
+        "email": str(email)
+    }
+    return render(request, "homepage/check_email.html", context)
 
-    return render(request, "homepage/index.html", request_context.__dict__)
+def do_logout(request):
+    if request.user.is_authenticated:
+        print("USER IS AUTHENTICATED - LOGGING OUT")
+        logout(request)
+        return render(request, "homepage/index.html", {})
+
+class MyLoginView(LoginView):
+
+    redirect_authenticated_user = True
+    
+    def get_success_url(self):
+        return render({}, "homepage/index.html", {}) 
+    
+    def form_invalid(self, form):
+        messages.error(self.request,'Invalid username or password')
+        return self.render_to_response(self.get_context_data(form=form))
+
 
 from rest_framework import viewsets
 from homepage.models import myUser
@@ -43,27 +63,37 @@ class UserViewSet(viewsets.ModelViewSet):
     # overrider the default create method in order to use the builtin 'create_user' function that
     # comes with builtin User. This one hashes the password by itself.
     def create(self, request):
-        logger = logging.getLogger('hello')
-        logger.warning(request.data)
+        logger = logging.getLogger('logger')
+        logger.info("creating user")
         first_name = request.data["firstname"]
         last_name = request.data["lastname"]
         email = request.data["email"]
         password = request.data["password"]
-        username = uuid4().hex[:30] # Makes a random username
-        new_user = myUser.objects.create_user(
+        username= request.data["username"]
+        inactive_user = myUser.objects.create_user(
             username=username, 
             email=email, 
             password=password,
             first_name=first_name,
-            last_name=last_name)
-        self.send_activation_email(new_user)
-        return HttpResponse("User Created!")
+            last_name=last_name,
+            is_active=False)
+        try:
+            print("sending email")
+            self.send_activation_email(inactive_user)
+        except:
+            pass
+        return HttpResponse()
     
     def send_activation_email(self, new_user):
         sender_email = 'tali@skunkworx.co'
         receiver_email = new_user.email
+        activation_key = RegistrationView().get_activation_key(new_user)
+
+        activation_link = '127.0.0.1:7000/activate/{activation_key}'.format(activation_key=activation_key)
+
 
         logger = logging.getLogger('activation_email')
+        logger.warning(f'activation link is: {activation_link}')
         logger.warning(f'sending email to {receiver_email}')
 
         message = MIMEMultipart("alternative")
@@ -75,36 +105,32 @@ class UserViewSet(viewsets.ModelViewSet):
         Hello, {0}.
         Pls click this link to activate your skunkworx account:
         
-        # # # Here will be link # # #
+        {1}
 
         Love, Tali
-        """.format(name)
+        """.format(name, activation_link)
 
         message.attach(MIMEText(body, 'plain'))
-
-
-        # Create a secure SSL context
-        context = ssl.create_default_context()
-        # send the email with SES smtp
-
-        # server = smtplib.SMTP(SMTP_ENDPOINT, port=STARTTLS_PORT)
         server = smtplib.SMTP_SSL(settings.SMTP_ENDPOINT, port=settings.TLS_WRAPPER_PORT)
-
         server.set_debuglevel(1)
-
-        # server.connect(SMTP_ENDPOINT, port=STARTTLS_PORT)
         server.connect(settings.SMTP_ENDPOINT, port=settings.TLS_WRAPPER_PORT)
-
-        # server.starttls() ### ONLY NEED THESE STEPS IF NOT USING THE SMTP_SSL OPTION
-        # server.helo()
-        # server.ehlo()
-
         server.login(settings.SMTP_USER_NAME, settings.SMTP_PASSWORD)
-        # TODO: Send email here
         txt = message.as_string()
         server.sendmail(sender_email, receiver_email, txt)
 
+        # Send email ends here
 
-            # Send email ends here
 
+class TalisActivationView(ActivationView):
 
+    def get(self, request, *args, **kwargs):
+        logger = logging.getLogger('poop')
+        logger.warning(f'activation view Woot!: {request} {args} {kwargs}')
+        kwargs["activation_key"] = kwargs["pk"]
+        logger.warning(f'AFTER CHANGE!: {request} {args} {kwargs}')
+        activated_user = self.activate(self, *args, **kwargs)
+        if activated_user:
+            # Step 1:  Login the user
+            login(request, activated_user)
+        logger.warning(f'USER LOGGED IN!')
+        return HttpResponseRedirect('/')
