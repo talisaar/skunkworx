@@ -89,7 +89,7 @@ class UserViewSet(viewsets.ModelViewSet):
         receiver_email = new_user.email
         activation_key = RegistrationView().get_activation_key(new_user)
 
-        activation_link = '127.0.0.1:7000/activate/{activation_key}'.format(activation_key=activation_key)
+        activation_link = 'www.skunkworx.co/activate/{activation_key}'.format(activation_key=activation_key)
 
 
         logger = logging.getLogger('activation_email')

@@ -23,5 +23,4 @@ urlpatterns = [
     path("", include("homepage.urls")),
     path("admin/", admin.site.urls),
     path('login/', include('django.contrib.auth.urls')),  
-    # path('login/login/', LoginView.as_view(extra_context={'backend': 'homepage.backends.MyBackend'}), name='login'), 
 ]
