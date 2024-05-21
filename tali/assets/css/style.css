@@ -30,7 +30,7 @@ h2, form {
 }
 
 /* line 34, ../../scss/style.scss */
-input, button {
+input, button, table {
   position: relative;
   display: block;
   margin: 5px auto;
