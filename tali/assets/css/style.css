@@ -32,7 +32,6 @@ h2, form {
 /* line 34, ../../scss/style.scss */
 input, button, table {
   position: relative;
-  display: block;
   margin: 5px auto;
   width: 100%;
   padding: 12px;
@@ -85,4 +84,5 @@ p {
 /* line 79, ../../scss/style.scss */
 td {
   color: white;
+  text-align: center;
 }

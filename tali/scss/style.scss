@@ -33,7 +33,7 @@ body {
   
   input, button, table {
     position: relative;
-    display: block;
+    // display: block;
     margin : 5px auto;
     width: 100%;
     padding: 12px;
@@ -78,4 +78,5 @@ p {
 
 td {
   color: white;
+  text-align: center;
 }
