@@ -15,14 +15,39 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django_registration.backends.activation.views import RegistrationView, ActivationView
 from django.contrib.auth import login, logout
 
+from rest_framework import viewsets
+from rest_framework.renderers import JSONRenderer
+from rest_framework.parsers import JSONParser
+
+from homepage.models import myUser, Post
+from homepage.serializers import UserSerializer, PostSerializer
+
+import requests
+
+
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 
 def index(request):
     if request.user.is_authenticated:
-        return render(request, "homepage/posts.html")
+        return HttpResponseRedirect('/posts')
     else:
-     return render(request, "homepage/index.html", {})
+        return render(request, "homepage/index.html", {})
+    
+def posts(request):
+
+    posts = Post.objects.all().order_by('-created')
+    owners = []
+    for post in posts:
+        print(post.owner.email)
+        owners.append(myUser.objects.get(email=post.owner.email))
+
+    posts_and_owners = zip(posts, owners)
+    context = {
+      'posts_and_owners': posts_and_owners,
+    }
+    return render(request, "homepage/posts.html", context)
+
 
 def check_email(request):
     # any + in original email get parsed as white space in the URL - so returning these here
@@ -50,13 +75,7 @@ class MyLoginView(LoginView):
         return self.render_to_response(self.get_context_data(form=form))
 
 
-from rest_framework import viewsets
-from homepage.models import myUser
-from homepage.serializers import UserSerializer
-from uuid import uuid4
-
-
-class UserViewSet(viewsets.ModelViewSet):
+class myUserViewSet(viewsets.ModelViewSet):
     queryset = myUser.objects.all()
     serializer_class = UserSerializer
 
@@ -134,3 +153,21 @@ class TalisActivationView(ActivationView):
             login(request, activated_user)
         logger.warning(f'USER LOGGED IN!')
         return HttpResponseRedirect('/')
+    
+from django.views.decorators.csrf import csrf_exempt
+
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+    def perform_create(self, serializer):
+        try:
+          owner = myUser.objects.get(email=self.request.data.get('owner'))
+        except:
+            owner = myUser.objects.get(email=self.request.user.email)
+        serializer.save(owner=owner)
+
+
+
+
+

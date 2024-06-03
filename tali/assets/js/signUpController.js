@@ -1,4 +1,4 @@
-var signUpApp = angular.module("signUpApp", [])
+var signUpApp = angular.module("signUpApp", []);
 
 signUpApp.config(function($httpProvider){
     $httpProvider.defaults.xsrfCookieName = 'csrftoken';
