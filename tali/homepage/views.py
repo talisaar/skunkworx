@@ -22,8 +22,6 @@ from rest_framework.parsers import JSONParser
 from homepage.models import myUser, Post
 from homepage.serializers import UserSerializer, PostSerializer
 
-import requests
-
 
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
