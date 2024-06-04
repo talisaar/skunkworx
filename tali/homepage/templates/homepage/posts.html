@@ -4,16 +4,19 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script type="text/javascript" src="{% static 'js/postController.js' %}"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script> -->
 
 </head>
 
 <form id = "logout_form" action="{% url 'logout' %}" method="post">
     {% csrf_token %}
     <button id="logout_button" type="submit">Logout</button>
+    <br>
+    <br>
+
 </form>
 
 <p>Hi there, {{ user.first_name }} {{ user_id }}- Post something on SKunKw0rx:</p>
-
 <form id="post_form" method="POST" ng-app="postApp" ng-controller="postCtrl" autocomplete="off" ng-init="user='{{ user }}'">
     {% csrf_token %}
     <input type="hidden" ng-model="user_id" value="poop">
@@ -21,12 +24,17 @@
     <button type="submit" ng-hide="hide_button" ng-click="createPost($event)">submit</button>
 </form>
 
+<br>
 <h2>SKunKw0rx posts feed</h2>
+<br>
 
 {% block posts_feed %}
     {% for post, owner in posts_and_owners %}
-    <p>USER {{ owner.id }} WROTE:</p>
-    <p>{{ post.content }}</p>
+    <hr>
+    <br>
+    <p id="post_owner">USER {{ owner.id }} WROTE:</p>
+    <p id="post_content">{{ post.content }}</p>
+    <br>
     {% endfor %}
 
 {% endblock posts_feed %}

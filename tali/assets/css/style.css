@@ -1,35 +1,54 @@
 /* define variables for the primary colors */
 /* use the variables */
-/* line 8, ../../scss/style.scss */
+/* line 10, ../../scss/style.scss */
 body {
-  background-color: #070992;
+  font-family: courier;
+  background-color: #000000;
   position: relative;
   display: block;
   margin: 25px;
 }
 
-/* line 16, ../../scss/style.scss */
+/* line 20, ../../scss/style.scss */
 h1 {
-  color: #ffe600;
-  font-family: verdana;
+  color: #ffffff;
+  font-family: courier;
   font-size: 300%;
 }
 
-/* line 21, ../../scss/style.scss */
-h2, form {
+/* line 26, ../../scss/style.scss */
+h2 {
   position: relative;
   display: block;
-  color: #ffe600;
+  color: #ffffff;
+  font-size: 160%;
+  text-align: center;
+}
+
+/* line 34, ../../scss/style.scss */
+h3 {
+  position: relative;
+  display: block;
+  color: #ffffff;
+  font-size: 130%;
+  text-align: center;
+}
+
+/* line 42, ../../scss/style.scss */
+form {
+  position: relative;
+  display: block;
+  color: #ffffff;
   font-family: courier;
   font-size: 160%;
-  border: 2px solid #ffe600;
+  border: 2px solid #ffffff;
   padding: 10px;
   margin: 5 auto;
   width: 50%;
   text-align: center;
 }
 
-/* line 34, ../../scss/style.scss */
+/* line 55, ../../scss/style.scss */
 input, button, table {
   position: relative;
   margin: 5px auto;
@@ -39,41 +58,31 @@ input, button, table {
   font-size: large;
 }
 
-/* line 44, ../../scss/style.scss */
+/* line 65, ../../scss/style.scss */
 .city {
-  background-color: #2bf103;
-  color: #ffe600;
-  border: 2px solid #2bf103;
+  background-color: #ffffff;
+  color: #ffffff;
+  border: 2px solid #ffffff;
   margin: 20px;
   padding: 20px;
 }
 
-/* line 52, ../../scss/style.scss */
-li {
-  color: #2bf103;
-}
-
-/* line 55, ../../scss/style.scss */
-li a {
-  color: #2bf103;
-}
-
-/* line 59, ../../scss/style.scss */
+/* line 73, ../../scss/style.scss */
 .vote_option {
-  color: #2bf103;
+  color: #ffffff;
 }
 
-/* line 63, ../../scss/style.scss */
+/* line 77, ../../scss/style.scss */
 a {
-  color: #ffe600;
+  color: #ffffff;
 }
 
-/* line 67, ../../scss/style.scss */
+/* line 81, ../../scss/style.scss */
 p {
   position: relative;
   display: block;
   margin: 5px auto;
-  width: 100%;
+  width: 50%;
   padding: 12px;
   box-sizing: border-box;
   font-size: medium;
@@ -81,15 +90,123 @@ p {
   color: white;
 }
 
-/* line 79, ../../scss/style.scss */
+/* line 93, ../../scss/style.scss */
 td {
   color: white;
   text-align: center;
 }
 
-/* line 84, ../../scss/style.scss */
+/* line 98, ../../scss/style.scss */
 #post_box {
   width: 100%;
   height: 100px;
   padding: 10px;
+}
+
+/* line 104, ../../scss/style.scss */
+#logo_box {
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  position: relative;
+  display: block;
+  margin: auto;
+}
+
+/* line 113, ../../scss/style.scss */
+ul {
+  position: relative;
+  display: block;
+  margin: auto;
+  width: 50%;
+  font-size: medium;
+  text-align: left;
+  color: white;
+}
+
+/* line 123, ../../scss/style.scss */
+li {
+  color: white;
+  margin: auto;
+}
+
+/* line 128, ../../scss/style.scss */
+#logout_form {
+  border: none;
+}
+
+/* line 131, ../../scss/style.scss */
+#logout_button {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: white;
+  text-decoration: underline;
+  cursor: pointer;
+  width: 50px;
+  float: right;
+}
+
+/* Small devices such as small phones (320px and up) */
+@media only screen and (min-width: 20em) {
+  /* line 149, ../../scss/style.scss */
+  form, p {
+    width: 90%;
+  }
+
+  /* line 153, ../../scss/style.scss */
+  li {
+    width: 100%;
+  }
+}
+/* Small devices such as large phones (640px and up) */
+@media only screen and (min-width: 40em) {
+  /* line 161, ../../scss/style.scss */
+  form, p {
+    width: 90%;
+  }
+
+  /* line 164, ../../scss/style.scss */
+  li {
+    width: 100%;
+  }
+}
+/* Medium devices such as tablets (768px and up) */
+@media only screen and (min-width: 48em) {
+  /* line 171, ../../scss/style.scss */
+  form, p {
+    width: 90%;
+  }
+
+  /* line 174, ../../scss/style.scss */
+  li {
+    width: 50%;
+  }
+}
+/* Large devices such as laptops (1024px and up) */
+@media only screen and (min-width: 64em) {
+  /* line 182, ../../scss/style.scss */
+  form, p {
+    width: 50%;
+  }
+
+  /* line 185, ../../scss/style.scss */
+  li {
+    width: 50%;
+  }
+}
+/* Largest devices such as desktops (1280px and up) */
+@media only screen and (min-width: 80em) {
+  /* line 193, ../../scss/style.scss */
+  form, p {
+    width: 50%;
+  }
+
+  /* line 196, ../../scss/style.scss */
+  li {
+    width: 50%;
+  }
 }

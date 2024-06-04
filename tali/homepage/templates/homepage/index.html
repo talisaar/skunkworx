@@ -7,7 +7,11 @@
 <script type="text/javascript" src="{% static 'js/js.js' %}"></script>
 </head>
 <body>
-    <h2> Sign up to SKunKw0rx</h2>
+    <div id="logo_box">
+        <img src ="{% static 'img/pepe.jpg' %}" style="display: block; margin: auto; height: 100px; width: 100px;">
+    </div>
+    
+    <h2> Welcome up to SKunKw0rx</h2>
     <form id="signup_form" method="POST" ng-app="signUpApp" ng-controller="signUpCtrl" autocomplete="off">
         {% csrf_token %}
         <input autocomplete="false" name="hidden" type="text" style="display:none;">
@@ -19,7 +23,29 @@
         <button type="submit" ng-hide="hide_button" ng-click="signUp($event)">Sign up</button>
         <p ng-hide="hide_processing_text" [disabled]="!ngForm.valid"> Signing up (takes a min...)</p>
     </form>
-    <h2><a href="{% url 'login' %}">Log In</a></h2>
+    <p>Already a member? <a href="{% url 'login' %}">Log In</a></p>
+    <br>
+    <br>
+    <hr>
+    <br>
+    <br>
 
+    <h2> About this site</h2>
+    <p> This is my Hello World site in Django.<br>
+        Features: Create  account, write and view posts.<br>
+        While feature thin, the stack is production ready.<br><br>
+        <a style="color: rgb(90, 128, 255)" href="https://github.com/talisaar/skunkworx/" target=”_blank”>view on Github</a>
+    </p>
+    <h3> Tech stack:</h3>
+    <ul>
+    <li>Django on backend</li>
+    <li>Angular JS on front &#40;+DRF&#41;</li>
+    <li>Served from ec2 with Gunicorn & NGINX</li>
+    <li>AWS: route53 & elastic IP</li>
+    <li>Postgresql db</li>
+    <li>Compass CSS</li>
+    </ul>
+    <br>
+    <br>
 </body>
 
