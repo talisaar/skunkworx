@@ -210,26 +210,6 @@ input::placeholder {
     color: $primary_2
   }
   
-  p {
-    position: relative;
-    display: block;
-    margin : 5px auto;
-    width: 50%;
-    padding: 12px;
-    box-sizing: border-box;
-    font-size: 17px;
-    text-align: center;
-    color: white;
-  }
-  
-  form, p{
-    width: 90%;
-  }
-
-  li {
-  width: 100%;
-  }
-
   input, table, button, #login_button {
     position: relative;
     // display: block;
@@ -242,11 +222,14 @@ input::placeholder {
     font-size: 35px;
 
   }
-
   button, #login_button {
     text-align: center;
     background-color: #dad5d5;
     color: rgb(68, 66, 66);
+  }
+
+  form, p {
+    width: 90%;
   }
 
   input::placeholder {
@@ -264,6 +247,25 @@ input::placeholder {
 
 /* Small devices such as large phones (640px and up) */
 @media only screen and (min-width: 40em) {
+
+  input, table, button, #login_button {
+    position: relative;
+    // display: block;
+    margin : 5px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 90px;
+    text-align: left;
+    font-size: 35px;
+
+  }
+  button, #login_button {
+    text-align: center;
+    background-color: #dad5d5;
+    color: rgb(68, 66, 66);
+  }
+
   form, p {
     width: 90%;
   }
@@ -281,6 +283,25 @@ input::placeholder {
 }
 /* Medium devices such as tablets (768px and up) */
 @media only screen and (min-width: 48em) {
+
+  input, table, button, #login_button {
+    position: relative;
+    // display: block;
+    margin : 5px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 50px;
+    text-align: left;
+    font-size: 20px;
+
+  }
+  button, #login_button {
+    text-align: center;
+    background-color: #dad5d5;
+    color: rgb(68, 66, 66);
+  }
+
   form, p {
     width: 90%;
   }
@@ -330,16 +351,19 @@ input::placeholder {
     width: 50%;
     }
 
-  input, button, table, #login_button {
+  input, table, button, #login_button {
     position: relative;
     // display: block;
-    margin : 5px auto;
+    margin : 5px;
     width: 100%;
-    padding: 12px;
-    box-sizing: border-box, ;
-    font-size: large;
+    padding: 10px;
+    box-sizing: border-box;
     height: 50px;
+    text-align: left;
+    font-size: 20px;
+
   }
+
   button, #login_button {
     text-align: center;
     background-color: #dad5d5;
@@ -395,7 +419,6 @@ input::placeholder {
     input::placeholder {
       color: #0000ca;
       opacity: 1; /* Firefox */
-      -webkit-appearance: none !important;
   
     }
   
