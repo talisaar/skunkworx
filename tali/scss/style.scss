@@ -184,6 +184,8 @@ li {
   ::placeholder {
     color: #3e3e42;
     opacity: 1; /* Firefox */
+    -webkit-appearance: none !important;
+
   }
 
   #no_account_sign_up_text{
@@ -279,6 +281,8 @@ li {
   ::placeholder {
     color: #3e3e42;
     opacity: 1; /* Firefox */
+    -webkit-appearance: none !important;
+
   }
 
   .start_section {
