@@ -7,34 +7,39 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script> -->
 
 </head>
+<body ng-app="postApp" ng-controller="postCtrl" autocomplete="off" ng-init="user='{{ user }}'; is_authenticated='{{ user.is_authenticated}}'">
 
 <form id = "logout_form" action="{% url 'logout' %}" method="post">
     {% csrf_token %}
-    <button id="logout_button" type="submit">Logout</button>
+    <button id="logout_button" type="submit" ng-hide="is_authenticated == 'False'">Logout</button>
     <br>
     <br>
-
 </form>
 
-<p>Hi there, {{ user.first_name }} {{ user_id }}- Post something on SKunKw0rx:</p>
-<form id="post_form" method="POST" ng-app="postApp" ng-controller="postCtrl" autocomplete="off" ng-init="user='{{ user }}'">
+<form id="post_form" method="POST">
+    <p ng-hide="is_authenticated == 'False'">Hi {{ user.first_name }}, post something:</p>
     {% csrf_token %}
     <input type="hidden" ng-model="user_id" value="poop">
-    <textarea ng-model="post_content_text" id="post_box" name="post_content" form="post_form", placeholder="Write a funny post" maxlength="200"></textarea>
-    <button type="submit" ng-hide="hide_button" ng-click="createPost($event)">submit</button>
+    <textarea ng-hide="is_authenticated == 'False'" ng-model="post_content_text" id="post_box" name="post_content" form="post_form", placeholder="Write a funny post" maxlength="200"></textarea>
+    <button ng-hide="is_authenticated == 'False'" type="submit" ng-hide="hide_button" ng-click="createPost($event)">submit</button>
+    <p ng-hide="is_authenticated == 'True'" style="color:aliceblue"> Please <a href="{% url 'homepage:index' %}">Sign up</a> or <a href="{% url 'login' %}">Log In</a> to write a post </p>
+
 </form>
 
+
 <br>
-<h2>SKunKw0rx posts feed</h2>
+<h3>SKunKw0rx feed</h3>
 <br>
 
 {% block posts_feed %}
     {% for post, owner in posts_and_owners %}
     <hr>
     <br>
-    <p id="post_owner">USER {{ owner.id }} WROTE:</p>
+    <p id="post_owner" style="font-size: small;">{{ owner.first_name }} wrote:</p>
     <p id="post_content">{{ post.content }}</p>
     <br>
     {% endfor %}
 
 {% endblock posts_feed %}
+
+</body>

@@ -6,26 +6,26 @@ body {
   background-color: #000000;
   position: relative;
   display: block;
-  margin: 25px;
+  margin: 10px;
 }
 
-/* line 20, ../../scss/style.scss */
+/* line 19, ../../scss/style.scss */
 h1 {
   color: #ffffff;
   font-family: courier;
   font-size: 300%;
 }
 
-/* line 26, ../../scss/style.scss */
+/* line 25, ../../scss/style.scss */
 h2 {
   position: relative;
   display: block;
   color: #ffffff;
-  font-size: 160%;
+  font-size: 50px;
   text-align: center;
 }
 
-/* line 34, ../../scss/style.scss */
+/* line 33, ../../scss/style.scss */
 h3 {
   position: relative;
   display: block;
@@ -34,7 +34,7 @@ h3 {
   text-align: center;
 }
 
-/* line 42, ../../scss/style.scss */
+/* line 41, ../../scss/style.scss */
 form {
   position: relative;
   display: block;
@@ -48,17 +48,7 @@ form {
   text-align: center;
 }
 
-/* line 55, ../../scss/style.scss */
-input, button, table {
-  position: relative;
-  margin: 5px auto;
-  width: 100%;
-  padding: 12px;
-  box-sizing: border-box;
-  font-size: large;
-}
-
-/* line 65, ../../scss/style.scss */
+/* line 54, ../../scss/style.scss */
 .city {
   background-color: #ffffff;
   color: #ffffff;
@@ -67,17 +57,17 @@ input, button, table {
   padding: 20px;
 }
 
-/* line 73, ../../scss/style.scss */
+/* line 62, ../../scss/style.scss */
 .vote_option {
   color: #ffffff;
 }
 
-/* line 77, ../../scss/style.scss */
+/* line 66, ../../scss/style.scss */
 a {
   color: #ffffff;
 }
 
-/* line 81, ../../scss/style.scss */
+/* line 70, ../../scss/style.scss */
 p {
   position: relative;
   display: block;
@@ -85,57 +75,58 @@ p {
   width: 50%;
   padding: 12px;
   box-sizing: border-box;
-  font-size: medium;
+  font-size: 17px;
   text-align: center;
   color: white;
 }
 
-/* line 93, ../../scss/style.scss */
+/* line 82, ../../scss/style.scss */
 td {
   color: white;
   text-align: center;
 }
 
-/* line 98, ../../scss/style.scss */
+/* line 87, ../../scss/style.scss */
 #post_box {
   width: 100%;
   height: 100px;
   padding: 10px;
 }
 
-/* line 104, ../../scss/style.scss */
+/* line 93, ../../scss/style.scss */
 #logo_box {
   height: 100px;
   width: 100px;
-  background-color: white;
   position: relative;
   display: block;
   margin: auto;
+  padding-top: 50px;
 }
 
-/* line 113, ../../scss/style.scss */
+/* line 102, ../../scss/style.scss */
 ul {
   position: relative;
   display: block;
   margin: auto;
-  width: 50%;
-  font-size: medium;
+  width: 100%;
+  font-size: 17px;
   text-align: left;
   color: white;
 }
 
-/* line 123, ../../scss/style.scss */
+/* line 112, ../../scss/style.scss */
 li {
   color: white;
   margin: auto;
+  font-size: 17px;
 }
 
-/* line 128, ../../scss/style.scss */
+/* line 118, ../../scss/style.scss */
 #logout_form {
   border: none;
 }
 
-/* line 131, ../../scss/style.scss */
+/* line 121, ../../scss/style.scss */
 #logout_button {
   background: none !important;
   border: none;
@@ -152,60 +143,216 @@ li {
 
 /* Small devices such as small phones (320px and up) */
 @media only screen and (min-width: 20em) {
-  /* line 149, ../../scss/style.scss */
+  /* line 140, ../../scss/style.scss */
+  a {
+    color: #ffffff;
+  }
+
+  /* line 144, ../../scss/style.scss */
+  p {
+    position: relative;
+    display: block;
+    margin: 5px auto;
+    width: 50%;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: 17px;
+    text-align: center;
+    color: white;
+  }
+
+  /* line 156, ../../scss/style.scss */
   form, p {
     width: 90%;
   }
 
-  /* line 153, ../../scss/style.scss */
+  /* line 160, ../../scss/style.scss */
   li {
     width: 100%;
+  }
+
+  /* line 164, ../../scss/style.scss */
+  input, table, button, #login_button {
+    position: relative;
+    margin: 5px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 90px;
+    text-align: left;
+    font-size: 35px;
+  }
+
+  /* line 176, ../../scss/style.scss */
+  button, #login_button {
+    text-align: center;
+    background-color: #dad5d5;
+    color: #444242;
+  }
+
+  /* line 182, ../../scss/style.scss */
+  ::placeholder {
+    color: #3e3e42;
+    opacity: 1;
+    /* Firefox */
+  }
+
+  /* line 187, ../../scss/style.scss */
+  #no_account_sign_up_text {
+    font-size: 20px;
   }
 }
 /* Small devices such as large phones (640px and up) */
 @media only screen and (min-width: 40em) {
-  /* line 161, ../../scss/style.scss */
+  /* line 195, ../../scss/style.scss */
   form, p {
     width: 90%;
   }
 
-  /* line 164, ../../scss/style.scss */
+  /* line 198, ../../scss/style.scss */
   li {
     width: 100%;
+  }
+
+  /* line 201, ../../scss/style.scss */
+  h3 {
+    font-size: 50px;
+  }
+
+  /* line 204, ../../scss/style.scss */
+  #no_account_sign_up_text {
+    font-size: 40px;
   }
 }
 /* Medium devices such as tablets (768px and up) */
 @media only screen and (min-width: 48em) {
-  /* line 171, ../../scss/style.scss */
+  /* line 212, ../../scss/style.scss */
   form, p {
     width: 90%;
   }
 
-  /* line 174, ../../scss/style.scss */
+  /* line 215, ../../scss/style.scss */
   li {
-    width: 50%;
+    width: 80%;
+  }
+
+  /* line 218, ../../scss/style.scss */
+  h3 {
+    font-size: 50px;
+  }
+
+  /* line 222, ../../scss/style.scss */
+  #no_account_sign_up_text {
+    font-size: 30px;
   }
 }
+/* line 228, ../../scss/style.scss */
+.start_section {
+  margin-top: 100px;
+}
+
+/* line 232, ../../scss/style.scss */
+#footer {
+  display: block;
+  height: 150px;
+}
+
 /* Large devices such as laptops (1024px and up) */
 @media only screen and (min-width: 64em) {
-  /* line 182, ../../scss/style.scss */
+  /* line 238, ../../scss/style.scss */
+  a {
+    color: #ffffff;
+  }
+
+  /* line 242, ../../scss/style.scss */
+  p {
+    position: relative;
+    display: block;
+    margin: 5px auto;
+    width: 50%;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: 17px;
+    text-align: center;
+    color: white;
+  }
+
+  /* line 254, ../../scss/style.scss */
   form, p {
     width: 50%;
   }
 
-  /* line 185, ../../scss/style.scss */
+  /* line 257, ../../scss/style.scss */
   li {
     width: 50%;
+  }
+
+  /* line 261, ../../scss/style.scss */
+  input, button, table, #login_button {
+    position: relative;
+    margin: 5px auto;
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: large;
+    height: 50px;
+  }
+
+  /* line 271, ../../scss/style.scss */
+  button, #login_button {
+    text-align: center;
+    background-color: #dad5d5;
+    color: #444242;
+  }
+
+  /* line 277, ../../scss/style.scss */
+  ::placeholder {
+    color: #3e3e42;
+    opacity: 1;
+    /* Firefox */
+  }
+
+  /* line 282, ../../scss/style.scss */
+  .start_section {
+    margin-top: 30px;
+  }
+
+  /* line 285, ../../scss/style.scss */
+  h3 {
+    font-size: 25px;
+  }
+
+  /* line 289, ../../scss/style.scss */
+  #no_account_sign_up_text {
+    font-size: 20px;
   }
 }
 /* Largest devices such as desktops (1280px and up) */
 @media only screen and (min-width: 80em) {
-  /* line 193, ../../scss/style.scss */
+  /* line 298, ../../scss/style.scss */
+  a {
+    color: #ffffff;
+  }
+
+  /* line 302, ../../scss/style.scss */
+  p {
+    position: relative;
+    display: block;
+    margin: 5px auto;
+    width: 50%;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: 17px;
+    text-align: center;
+    color: white;
+  }
+
+  /* line 314, ../../scss/style.scss */
   form, p {
     width: 50%;
   }
 
-  /* line 196, ../../scss/style.scss */
+  /* line 317, ../../scss/style.scss */
   li {
     width: 50%;
   }

@@ -13,8 +13,7 @@ body {
     background-color: $primary_1;
     position: relative;
     display: block;
-    margin: 25px;
-
+    margin: 10px;
   }
 
   h1 {
@@ -27,7 +26,7 @@ body {
     position: relative;
     display: block;  
     color: $primary_2;
-    font-size: 160%;
+    font-size: 50px;
     text-align: center;
   }
 
@@ -51,17 +50,7 @@ body {
     width: 50%;
     text-align: center;
   }
-  
-  input, button, table {
-    position: relative;
-    // display: block;
-    margin : 5px auto;
-    width: 100%;
-    padding: 12px;
-    box-sizing: border-box;
-    font-size: large;
-  }
-  
+    
   .city {
     background-color: $primary_3;
     color: $primary_2;
@@ -85,7 +74,7 @@ p {
   width: 50%;
   padding: 12px;
   box-sizing: border-box;
-  font-size: medium;
+  font-size: 17px;
   text-align: center;
   color: white;
 }
@@ -104,18 +93,18 @@ td {
 #logo_box {
   height: 100px;
   width: 100px;
-  background-color: white;
   position: relative;
   display: block;
   margin: auto;
+  padding-top: 50px;
 }
 
 ul {
   position: relative;
   display: block;
   margin : auto;
-  width: 50%;
-  font-size: medium;
+  width: 100%;
+  font-size: 17px;
   text-align: left;
   color: white;
 }
@@ -123,6 +112,7 @@ ul {
 li {
   color: white;
   margin : auto;
+  font-size: 17px;
 }
 
 #logout_form {
@@ -146,12 +136,56 @@ li {
 
 /* Small devices such as small phones (320px and up) */
 @media only screen and (min-width: 20em) {
+
+  a {
+    color: $primary_2
+  }
+  
+  p {
+    position: relative;
+    display: block;
+    margin : 5px auto;
+    width: 50%;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: 17px;
+    text-align: center;
+    color: white;
+  }
+  
   form, p{
     width: 90%;
   }
 
   li {
   width: 100%;
+  }
+
+  input, table, button, #login_button {
+    position: relative;
+    // display: block;
+    margin : 5px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 90px;
+    text-align: left;
+    font-size: 35px;
+  }
+
+  button, #login_button {
+    text-align: center;
+    background-color: #dad5d5;
+    color: rgb(68, 66, 66);
+  }
+
+  ::placeholder {
+    color: #3e3e42;
+    opacity: 1; /* Firefox */
+  }
+
+  #no_account_sign_up_text{
+    font-size: 20px;
   }
 }
 
@@ -164,6 +198,13 @@ li {
   li {
     width: 100%;
     }
+  h3 {
+    font-size: 50px;
+  }
+  #no_account_sign_up_text{
+    font-size: 40px;
+  }
+
   
 }
 /* Medium devices such as tablets (768px and up) */
@@ -172,29 +213,109 @@ li {
     width: 90%;
   }
   li {
-    width: 50%;
+    width: 80%;
+    }
+    h3 {
+      font-size: 50px;
+    }
+  
+    #no_account_sign_up_text{
+      font-size: 30px;
     }
   
 }
 
+.start_section {
+  margin-top: 100px;
+}
+
+#footer {
+  display: block;
+  height: 150px;
+}
 /* Large devices such as laptops (1024px and up) */
 @media only screen and (min-width: 64em) {
+  a {
+    color: $primary_2
+  }
+  
+  p {
+    position: relative;
+    display: block;
+    margin : 5px auto;
+    width: 50%;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: 17px;
+    text-align: center;
+    color: white;
+  }
+  
   form, p {
     width: 50%;
   }
   li {
     width: 50%;
     }
-  
+
+  input, button, table, #login_button {
+    position: relative;
+    // display: block;
+    margin : 5px auto;
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box, ;
+    font-size: large;
+    height: 50px;
+  }
+  button, #login_button {
+    text-align: center;
+    background-color: #dad5d5;
+    color: rgb(68, 66, 66);
+  }
+
+  ::placeholder {
+    color: #3e3e42;
+    opacity: 1; /* Firefox */
+  }
+
+  .start_section {
+    margin-top: 30px;
+  }
+  h3 {
+    font-size: 25px;
+  }
+
+  #no_account_sign_up_text{
+    font-size: 20px;
+  }
+
+
 }
 
 /* Largest devices such as desktops (1280px and up) */
 @media only screen and (min-width: 80em) {
+  a {
+    color: $primary_2
+  }
+  
+  p {
+    position: relative;
+    display: block;
+    margin : 5px auto;
+    width: 50%;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: 17px;
+    text-align: center;
+    color: white;
+  }
+  
   form, p {
     width: 50%;
   }
   li {
     width: 50%;
     }
-  
+    
 }
