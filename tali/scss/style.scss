@@ -180,19 +180,22 @@ li {
 }
 
 
-::-webkit-input-placeholder {
+input::placeholder {
+  color:red;
+}
+input::-webkit-input-placeholder {
   color:red;
 }
 
-::-moz-placeholder {
+input::-moz-placeholder {
   color:red;
 }
 
-::-ms-placeholder {
+input::-ms-placeholder {
   color:red;
 }
 
-::placeholder {
+input::placeholder {
   color:red;
 }
 
