@@ -193,7 +193,7 @@ li {
 
   /* line 184, ../../scss/style.scss */
   ::placeholder {
-    color: #3e3e42;
+    color: #0000ca;
     opacity: 1;
     /* Firefox */
     -webkit-appearance: none !important;
@@ -309,7 +309,7 @@ li {
 
   /* line 281, ../../scss/style.scss */
   ::placeholder {
-    color: #3e3e42;
+    color: #0000ca;
     opacity: 1;
     /* Firefox */
     -webkit-appearance: none !important;
