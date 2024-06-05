@@ -240,6 +240,7 @@ input::placeholder {
     height: 90px;
     text-align: left;
     font-size: 35px;
+
   }
 
   button, #login_button {
@@ -248,7 +249,7 @@ input::placeholder {
     color: rgb(68, 66, 66);
   }
 
-  ::placeholder {
+  input::placeholder {
     color: #0000ca;
     opacity: 1; /* Firefox */
     -webkit-appearance: none !important;
@@ -345,7 +346,7 @@ input::placeholder {
     color: rgb(68, 66, 66);
   }
 
-  ::placeholder {
+  input::placeholder {
     color: #0000ca;
     opacity: 1; /* Firefox */
     -webkit-appearance: none !important;
@@ -390,5 +391,13 @@ input::placeholder {
   li {
     width: 50%;
     }
+
+    input::placeholder {
+      color: #0000ca;
+      opacity: 1; /* Firefox */
+      -webkit-appearance: none !important;
+  
+    }
+  
     
 }
