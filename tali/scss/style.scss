@@ -67,12 +67,10 @@ input, table {
 }
 
 #login_button {
-  // appearance: None;
   width: 80%;
 }
 
 #post_button {
-  // appearance: None;
   width: 10%;
   float: right;
   margin-right: 20%;
@@ -92,17 +90,16 @@ input::placeholder {
   color: red;
 }
 
-input[type="text"] { 
-  color: red;
+// input[type="text"] { 
+//   color: red;
 
- }
-input[type="password"] { 
-  color: red;
+//  }
+// input[type="password"] { 
+//   color: red;
 
- }
-input[type="submit"] { 
-  color: orange;
-  // // // appearance: None;
-  background-color: gray;
+//  }
+// input[type="submit"] { 
+//   color: orange;
+//   background-color: gray;
 
- }
+//  }

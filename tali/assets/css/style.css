@@ -72,7 +72,7 @@ input, table {
   width: 80%;
 }
 
-/* line 74, ../../scss/style.scss */
+/* line 73, ../../scss/style.scss */
 #post_button {
   width: 10%;
   float: right;
@@ -81,34 +81,18 @@ input, table {
   height: 30px;
 }
 
-/* line 82, ../../scss/style.scss */
+/* line 80, ../../scss/style.scss */
 td:first-child {
   width: 30%;
   text-align: right;
 }
 
-/* line 87, ../../scss/style.scss */
+/* line 85, ../../scss/style.scss */
 td:first-child + td {
   width: 70%;
 }
 
-/* line 91, ../../scss/style.scss */
+/* line 89, ../../scss/style.scss */
 input::placeholder {
   color: red;
-}
-
-/* line 95, ../../scss/style.scss */
-input[type="text"] {
-  color: red;
-}
-
-/* line 99, ../../scss/style.scss */
-input[type="password"] {
-  color: red;
-}
-
-/* line 103, ../../scss/style.scss */
-input[type="submit"] {
-  color: orange;
-  background-color: gray;
 }
