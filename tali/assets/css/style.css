@@ -112,6 +112,6 @@ input[type="password"] {
 
 /* line 103, ../../scss/style.scss */
 input[type="submit"] {
-  color: red;
+  color: orange;
   appearance: None;
 }
