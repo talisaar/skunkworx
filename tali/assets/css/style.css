@@ -114,4 +114,5 @@ input[type="password"] {
 input[type="submit"] {
   color: orange;
   appearance: None;
+  background-color: gray;
 }
