@@ -11,7 +11,7 @@
         <img src ="{% static 'img/pepe.jpg' %}" style="display: block; margin: auto; height: 100px; width: 100px;">
     </div>
     
-    <h3> Welcome to SKunKw0rx</h3>
+    <h3> Welcome to SKunKw0rx</h>
     <form id="signup_form" method="POST" ng-app="signUpApp" ng-controller="signUpCtrl" autocomplete="off">
         {% csrf_token %}
         <input autocomplete="false" name="hidden" type="text" style="display:none;">
@@ -20,7 +20,7 @@
         <input type="email" ng-model="email" placeholder="email address" required="required" data-lpignore="true">
         <input type="password" id="password" ng-model="password" placeholder="create a password" required="required" data-lpignore="true">
         <input type="password" id="password_confirm" ng-model="password_confirm" placeholder="repeat password" required="required" data-lpignore="true" oninput="check()"/>
-        <button type="submit" ng-hide="hide_button" ng-click="signUp($event)">Sign up</button>
+        <button ng-hide="hide_button" ng-click="signUp($event)">Sign up</button>
         <p ng-hide="hide_processing_text" [disabled]="!ngForm.valid"> Signing up (takes a min...)</p>
     </form>
     <p class="start_section">Already a member? <a href="{% url 'login' %}">Log In</a></p>
