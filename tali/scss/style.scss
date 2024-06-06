@@ -220,6 +220,7 @@ input::placeholder {
     height: 90px;
     text-align: left;
     font-size: 35px;
+    appearance: None;
 
   }
   button, #login_button {
@@ -235,7 +236,7 @@ input::placeholder {
   input::placeholder {
     color: #0000ca;
     opacity: 1; /* Firefox */
-    -webkit-appearance: none !important;
+    appearance: None !important;
 
   }
 
@@ -294,6 +295,7 @@ input::placeholder {
     height: 50px;
     text-align: left;
     font-size: 20px;
+    appearance: None;
 
   }
   button, #login_button {
@@ -361,6 +363,7 @@ input::placeholder {
     height: 50px;
     text-align: left;
     font-size: 20px;
+    appearance: None;
 
   }
 
@@ -373,7 +376,7 @@ input::placeholder {
   input::placeholder {
     color: #0000ca;
     opacity: 1; /* Firefox */
-    -webkit-appearance: none !important;
+    appearance: none !important;
 
   }
 
@@ -419,6 +422,7 @@ input::placeholder {
     input::placeholder {
       color: #0000ca;
       opacity: 1; /* Firefox */
+      appearance: None;
   
     }
   
