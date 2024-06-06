@@ -58,19 +58,21 @@ textarea {
   height: 100px;
 }
 input, table {
+  appearance: None;
   width: 80%;
   height: 50px;
+  padding-left: 15px;
+  padding-right: 30px;
+
 }
 
 #login_button {
-  width: 80%;
-}
-
-#login_button {
+  appearance: None;
   width: 80%;
 }
 
 #post_button {
+  appearance: None;
   width: 10%;
   float: right;
   margin-right: 20%;
