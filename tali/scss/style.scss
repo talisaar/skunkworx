@@ -58,7 +58,7 @@ textarea {
   height: 100px;
 }
 input, table {
-  appearance: None;
+  // appearance: None;
   width: 80%;
   height: 50px;
   padding-left: 15px;
@@ -67,12 +67,12 @@ input, table {
 }
 
 #login_button {
-  appearance: None;
+  // appearance: None;
   width: 80%;
 }
 
 #post_button {
-  appearance: None;
+  // appearance: None;
   width: 10%;
   float: right;
   margin-right: 20%;
@@ -102,7 +102,7 @@ input[type="password"] {
  }
 input[type="submit"] { 
   color: orange;
-  // appearance: None;
+  // // // appearance: None;
   background-color: gray;
 
  }
