@@ -16,17 +16,16 @@
     <br>
 </form>
 
+<p ng-hide="is_authenticated == 'False'">Hi {{ user.first_name }}, post something:</p>
+
 <form id="post_form" method="POST">
-    <p ng-hide="is_authenticated == 'False'">Hi {{ user.first_name }}, post something:</p>
     {% csrf_token %}
-    <input type="hidden" ng-model="user_id" value="poop">
-    <textarea ng-hide="is_authenticated == 'False'" ng-model="post_content_text" id="post_box" name="post_content" form="post_form", placeholder="Write a funny post" maxlength="200"></textarea>
-    <button ng-hide="is_authenticated == 'False'" type="submit" ng-hide="hide_button" ng-click="createPost($event)">submit</button>
-    <p ng-hide="is_authenticated == 'True'" style="color:aliceblue"> Please <a href="{% url 'homepage:index' %}">Sign up</a> or <a href="{% url 'login' %}">Log In</a> to write a post </p>
-
+    <textarea ng-hide="is_authenticated == 'False'" ng-model="post_content_text" id="post_box" name="post_content" form="post_form", placeholder="Write a funny post" maxlength="200"></textarea><br>
+    <input id="post_button" type="submit" value="Submit post" ng-hide="is_authenticated == 'False'" ng-hide="hide_button" ng-click="createPost($event)">
 </form>
+<p ng-hide="is_authenticated == 'True'" style="color:aliceblue"> Please <a href="{% url 'homepage:index' %}">Sign up</a> or <a href="{% url 'login' %}">Log In</a> to write a post </p>
 
-
+<br>
 <br>
 <h3>SKunKw0rx feed</h3>
 <br>

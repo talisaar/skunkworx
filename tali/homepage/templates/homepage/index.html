@@ -6,12 +6,12 @@
 <script type="text/javascript" src="{% static 'js/signUpController.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/js.js' %}"></script>
 </head>
+
 <body>
-    <div id="logo_box">
-        <img src ="{% static 'img/pepe.jpg' %}" style="display: block; margin: auto; height: 100px; width: 100px;">
-    </div>
+
+    <img id="logo" src ="{% static 'img/pepe.jpg' %}" style="display: block; margin: auto; height: 100px; width: 100px;">
     
-    <h3> Welcome to SKunKw0rx</h>
+    <h1> Welcome to SKunKw0rx</h1>
     <form id="signup_form" method="POST" ng-app="signUpApp" ng-controller="signUpCtrl" autocomplete="off">
         {% csrf_token %}
         <input autocomplete="false" name="hidden" type="text" style="display:none;">
@@ -20,16 +20,16 @@
         <input type="email" ng-model="email" placeholder="email address" required="required" data-lpignore="true">
         <input type="password" id="password" ng-model="password" placeholder="create a password" required="required" data-lpignore="true">
         <input type="password" id="password_confirm" ng-model="password_confirm" placeholder="repeat password" required="required" data-lpignore="true" oninput="check()"/>
-        <button ng-hide="hide_button" ng-click="signUp($event)">Sign up</button>
+        <input type="submit" value="Sign up" ng-hide="hide_button" ng-click="signUp($event)">
         <p ng-hide="hide_processing_text" [disabled]="!ngForm.valid"> Signing up (takes a min...)</p>
     </form>
     <p class="start_section">Already a member? <a href="{% url 'login' %}">Log In</a></p>
     <hr class="start_section">
-    <h3 class="start_section"> About this site</h3>
+    <h2 class="start_section"> About this site</h2>
     <p> This is my Hello World site in Django.<br>
         Features: Create  account, write and view posts.<br>
         While feature thin, the stack is production ready.<br><br>
-        <a class="start_section" style="color: rgb(90, 128, 255)" href="https://github.com/talisaar/skunkworx/" target=”_blank”>view on Github</a>
+        <a class="start_section" href="https://github.com/talisaar/skunkworx/" target=”_blank”>view on Github</a>
     </p>
     <h3 class="start_section"> Tech stack</h3>
     <ul>
