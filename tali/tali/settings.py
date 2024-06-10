@@ -162,11 +162,9 @@ STATICFILES_DIRS = (
 
 # copied from ses_with_smptlib.py #
 
-from secrets import SMTP_USER_NAME, SMTP_PASSWORD
+from .secrets import SMTP_USER_NAME, SMTP_PASSWORD
 
 IAM_USER_NAME = "tali@skunkworx.co"
-SMTP_USER_NAME = SMTP_USER_NAME
-SMTP_PASSWORD = SMTP_PASSWORD
 SMTP_ENDPOINT = "email-smtp.us-west-2.amazonaws.com"
 
 STARTTLS_PORT = 587  # option 1: server.starttls()
