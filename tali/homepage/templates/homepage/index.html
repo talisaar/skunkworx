@@ -28,8 +28,8 @@
     <form id="signup_form" method="POST" ng-app="signUpApp" ng-controller="signUpCtrl" autocomplete="off">
         {% csrf_token %}
         <input autocomplete="false" name="hidden" type="text" style="display:none;">
-        <input type="text" ng-model="firstname" placeholder="First Name" required="required" data-lpignore="true">
-        <input type="text" ng-model="lastname" placeholder="Last Name" required="required" data-lpignore="true">
+        <input type="text" ng-model="firstname" placeholder="first name" required="required" data-lpignore="true">
+        <input type="text" ng-model="lastname" placeholder="last name" required="required" data-lpignore="true">
         <input type="email" ng-model="email" placeholder="email address" required="required" data-lpignore="true">
         <input type="password" id="password" ng-model="password" placeholder="create a password" required="required" data-lpignore="true">
         <input type="password" id="password_confirm" ng-model="password_confirm" placeholder="repeat password" required="required" data-lpignore="true" oninput="check()"/>
@@ -39,13 +39,13 @@
     <p class="start_section">Already a member? <a href="{% url 'login' %}">Log In</a></p>
     <hr>
     <h2 class="start_section"> About this site</h2>
-    <p> This is my Hello World site in Django.<br>
+    <p> This is my Hello World Django site.<br>
         Features: Create  account, write and view posts.<br>
         While feature thin, the stack is production ready.<br><br>
         <a class="start_section" href="https://github.com/talisaar/skunkworx/" target=”_blank”>view on Github</a>
     </p>
     <h3 class="start_section"> Tech stack</h3>
-    <ul>
+    <ul style="margin-left: 30%; margin-right: 30%;">
     <li>Django on backend</li>
     <li>Angular JS on front &#40;+DRF&#41;</li>
     <li>Served from ec2 with Gunicorn & NGINX</li>
