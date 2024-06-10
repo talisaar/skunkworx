@@ -194,7 +194,30 @@ input[type="submit"] {
     margin-right: 0%;
   }
 
+  #login_form {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
+  td:first-child {
+    width: 10%;
+    text-align: right;
+  }
   
+  td:first-child + td{
+    width: 90%;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  #login_button {
+    width: 100%;
+  }
+
 }
 
 
@@ -224,6 +247,31 @@ input[type="submit"] {
   #logout_button {
     margin-right: 0%;
   }
+
+  #login_form {
+    width: 100%;
+  }
+
+  table {
+    width: 100%;
+  }
+  td:first-child {
+    width: 10%;
+    text-align: right;
+  }
+  
+  td:first-child + td{
+    width: 90%;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  #login_button {
+    width: 100%;
+  }
+
 
   
 }
@@ -263,6 +311,30 @@ input[type="submit"] {
     margin-right: 20%;
   }
 
+
+  #login_form {
+    width: 80%;
+  }
+
+  table {
+    width: 80%;
+  }
+  td:first-child {
+    width: 30%;
+    text-align: right;
+  }
+  
+  td:first-child + td{
+    width: 70%;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  #login_button {
+    width: 100%;
+  }
 
 }
 
