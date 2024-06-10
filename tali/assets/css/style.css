@@ -124,6 +124,13 @@ input[type="password"] {
 
 /* line 115, ../../scss/style.scss */
 input[type="submit"] {
+  appearance: None;
   color: orange;
   background-color: gray;
+}
+
+/* line 122, ../../scss/style.scss */
+.start_section {
+  padding-top: 15px;
+  padding-bottom: 15px;
 }

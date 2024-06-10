@@ -113,7 +113,13 @@ input[type="password"] {
 
  }
 input[type="submit"] { 
+  appearance: None; // Should take care of webkit styles getting in the way
   color: orange;
   background-color: gray;
 
+ }
+
+ .start_section {
+  padding-top: 15px;
+  padding-bottom: 15px;
  }
