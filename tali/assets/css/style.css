@@ -63,16 +63,31 @@ textarea {
 input, table {
   width: 80%;
   height: 50px;
+}
+
+/* line 67, ../../scss/style.scss */
+input {
   padding-left: 15px;
   padding-right: 30px;
 }
 
-/* line 69, ../../scss/style.scss */
+/* line 72, ../../scss/style.scss */
+table {
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 1px;
+  padding-left: 0px;
+  padding-right: 5%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+/* line 83, ../../scss/style.scss */
 #login_button {
   width: 80%;
 }
 
-/* line 73, ../../scss/style.scss */
+/* line 87, ../../scss/style.scss */
 #post_button {
   width: 10%;
   float: right;
@@ -81,18 +96,34 @@ input, table {
   height: 30px;
 }
 
-/* line 80, ../../scss/style.scss */
+/* line 94, ../../scss/style.scss */
 td:first-child {
   width: 30%;
   text-align: right;
 }
 
-/* line 85, ../../scss/style.scss */
+/* line 99, ../../scss/style.scss */
 td:first-child + td {
   width: 70%;
 }
 
-/* line 89, ../../scss/style.scss */
+/* line 103, ../../scss/style.scss */
 input::placeholder {
   color: red;
+}
+
+/* line 107, ../../scss/style.scss */
+input[type="text"] {
+  color: red;
+}
+
+/* line 111, ../../scss/style.scss */
+input[type="password"] {
+  color: red;
+}
+
+/* line 115, ../../scss/style.scss */
+input[type="submit"] {
+  color: orange;
+  background-color: gray;
 }

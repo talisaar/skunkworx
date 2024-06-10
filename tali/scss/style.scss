@@ -61,8 +61,22 @@ input, table {
   // appearance: None;
   width: 80%;
   height: 50px;
+
+}
+
+input {
   padding-left: 15px;
   padding-right: 30px;
+}
+
+table {
+  border-style: solid;
+  border-color: #ffffff;
+  border-width: 1px;
+  padding-left: 0px;
+  padding-right: 5%;
+  padding-top: 30px;
+  padding-bottom: 30px;
 
 }
 
@@ -90,16 +104,16 @@ input::placeholder {
   color: red;
 }
 
-// input[type="text"] { 
-//   color: red;
+input[type="text"] { 
+  color: red;
 
-//  }
-// input[type="password"] { 
-//   color: red;
+ }
+input[type="password"] { 
+  color: red;
 
-//  }
-// input[type="submit"] { 
-//   color: orange;
-//   background-color: gray;
+ }
+input[type="submit"] { 
+  color: orange;
+  background-color: gray;
 
-//  }
+ }

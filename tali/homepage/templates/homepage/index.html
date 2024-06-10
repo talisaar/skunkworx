@@ -5,6 +5,19 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script type="text/javascript" src="{% static 'js/signUpController.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/js.js' %}"></script>
+
+<!-- Take care of view port zooming for iphone-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+    if(navigator.userAgent.indexOf('iPhone') > -1 )
+{
+    document
+      .querySelector("[name=viewport]")
+      .setAttribute("content","width=device-width, initial-scale=1, maximum-scale=1");
+}
+</script>
+<!-- Take care of view port zooming -->
+
 </head>
 
 <body>
