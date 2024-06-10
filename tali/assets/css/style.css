@@ -12,7 +12,7 @@
   box-sizing: inherit;
 }
 
-/* line 24, ../../scss/style.scss */
+/* line 23, ../../scss/style.scss */
 body {
   font-family: courier;
   background-color: #000000;
@@ -21,63 +21,63 @@ body {
   margin: 10px;
 }
 
-/* line 32, ../../scss/style.scss */
+/* line 31, ../../scss/style.scss */
 p, h1, h2, h3, ul, li {
   color: #ffffff;
   text-align: center;
 }
 
-/* line 37, ../../scss/style.scss */
+/* line 36, ../../scss/style.scss */
 p, li {
-  font-size: 20px;
+  font-size: 16px;
 }
 
-/* line 41, ../../scss/style.scss */
+/* line 40, ../../scss/style.scss */
 ul {
   width: 40%;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 48, ../../scss/style.scss */
+/* line 47, ../../scss/style.scss */
 td {
   color: #ffffff;
 }
 
-/* line 52, ../../scss/style.scss */
+/* line 51, ../../scss/style.scss */
 a {
   color: #38aedd;
 }
 
-/* line 56, ../../scss/style.scss */
+/* line 55, ../../scss/style.scss */
 table, th, td {
   border: None;
 }
 
-/* line 60, ../../scss/style.scss */
+/* line 59, ../../scss/style.scss */
 table {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 65, ../../scss/style.scss */
+/* line 64, ../../scss/style.scss */
 form {
   text-align: center;
 }
 
-/* line 70, ../../scss/style.scss */
+/* line 69, ../../scss/style.scss */
 input, table {
   width: 80%;
   height: 50px;
 }
 
-/* line 77, ../../scss/style.scss */
+/* line 76, ../../scss/style.scss */
 input {
   padding-left: 15px;
   padding-right: 30px;
 }
 
-/* line 82, ../../scss/style.scss */
+/* line 81, ../../scss/style.scss */
 table {
   border-style: solid;
   border-color: #ffffff;
@@ -88,13 +88,13 @@ table {
   padding-bottom: 30px;
 }
 
-/* line 93, ../../scss/style.scss */
+/* line 92, ../../scss/style.scss */
 #login_button {
   width: 80%;
   background-color: #38aedd;
 }
 
-/* line 99, ../../scss/style.scss */
+/* line 98, ../../scss/style.scss */
 #post_button {
   width: 10%;
   float: right;
@@ -104,18 +104,18 @@ table {
   background-color: #38aedd;
 }
 
-/* line 108, ../../scss/style.scss */
+/* line 107, ../../scss/style.scss */
 td:first-child {
   width: 30%;
   text-align: right;
 }
 
-/* line 113, ../../scss/style.scss */
+/* line 112, ../../scss/style.scss */
 td:first-child + td {
   width: 70%;
 }
 
-/* line 117, ../../scss/style.scss */
+/* line 116, ../../scss/style.scss */
 input {
   margin-bottom: 5px;
   appearance: none;
@@ -125,23 +125,23 @@ input {
   color: black;
 }
 
-/* line 126, ../../scss/style.scss */
+/* line 125, ../../scss/style.scss */
 input::placeholder {
   color: #837b7b;
   font-size: 16px;
 }
 
-/* line 131, ../../scss/style.scss */
+/* line 130, ../../scss/style.scss */
 input[type="text"] {
   color: black;
 }
 
-/* line 135, ../../scss/style.scss */
+/* line 134, ../../scss/style.scss */
 input[type="password"] {
   color: black;
 }
 
-/* line 139, ../../scss/style.scss */
+/* line 138, ../../scss/style.scss */
 input[type="submit"] {
   appearance: none;
   -webkit-appearance: none !important;
@@ -150,13 +150,13 @@ input[type="submit"] {
   font-size: 16px;
 }
 
-/* line 148, ../../scss/style.scss */
+/* line 147, ../../scss/style.scss */
 .start_section {
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
-/* line 153, ../../scss/style.scss */
+/* line 152, ../../scss/style.scss */
 #logout_button {
   background: none !important;
   border: none;
@@ -174,72 +174,82 @@ input[type="submit"] {
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-  /* line 172, ../../scss/style.scss */
+  /* line 171, ../../scss/style.scss */
   ul {
     width: 80%;
   }
 
-  /* line 176, ../../scss/style.scss */
-  textarea {
-    width: 90%;
-    height: 150px;
-    font-size: 20px;
+  /* line 175, ../../scss/style.scss */
+  #post_box {
+    width: 100%;
+    height: 120px;
+    font-size: 16px;
     padding: 10px;
   }
 
-  /* line 183, ../../scss/style.scss */
+  /* line 182, ../../scss/style.scss */
   #post_button {
     width: 120px;
     float: right;
+    margin-right: 0%;
     margin-top: 5px;
-    margin-right: 5%;
     color: #ffffff;
     height: 30px;
     background-color: #38aedd;
+  }
+
+  /* line 193, ../../scss/style.scss */
+  #logout_button {
+    margin-right: 0%;
   }
 }
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
-  /* line 199, ../../scss/style.scss */
+  /* line 203, ../../scss/style.scss */
   ul {
     width: 80%;
   }
 
-  /* line 203, ../../scss/style.scss */
-  textarea {
-    width: 90%;
+  /* line 207, ../../scss/style.scss */
+  #post_box {
+    width: 100%;
     height: 150px;
-    font-size: 20px;
+    font-size: 16px;
     padding: 10px;
   }
 
-  /* line 210, ../../scss/style.scss */
+  /* line 214, ../../scss/style.scss */
   #post_button {
     width: 120px;
     float: right;
     margin-top: 5px;
-    margin-right: 5%;
+    margin-right: 0%;
     color: #ffffff;
     height: 30px;
     background-color: #38aedd;
   }
+
+  /* line 224, ../../scss/style.scss */
+  #logout_button {
+    margin-right: 0%;
+  }
 }
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-  /* line 225, ../../scss/style.scss */
+  /* line 234, ../../scss/style.scss */
   ul {
     width: 40%;
   }
 
-  /* line 229, ../../scss/style.scss */
-  textarea {
+  /* line 238, ../../scss/style.scss */
+  #post_box {
     width: 60%;
     height: 100px;
     font-size: 16px;
     padding: 10px;
   }
 
-  /* line 236, ../../scss/style.scss */
+  /* line 245, ../../scss/style.scss */
   #post_button {
     width: 120px;
     float: right;
@@ -248,6 +258,18 @@ input[type="submit"] {
     color: #ffffff;
     height: 30px;
     background-color: #38aedd;
+  }
+
+  /* line 255, ../../scss/style.scss */
+  p {
+    width: 40%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* line 262, ../../scss/style.scss */
+  #logout_button {
+    margin-right: 20%;
   }
 }
 /* Large devices (laptops/desktops, 992px and up) */

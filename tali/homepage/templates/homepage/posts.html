@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script type="text/javascript" src="{% static 'js/postController.js' %}"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script> -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
 <body ng-app="postApp" ng-controller="postCtrl" autocomplete="off" ng-init="user='{{ user }}'; is_authenticated='{{ user.is_authenticated}}'">
@@ -20,7 +20,7 @@
 
 <form id="post_form" method="POST">
     {% csrf_token %}
-    <textarea ng-hide="is_authenticated == 'False'" ng-model="post_content_text" id="post_box" name="post_content" form="post_form", placeholder="Write a funny post" maxlength="200"></textarea><br>
+    <textarea id="post_box" ng-hide="is_authenticated == 'False'" ng-model="post_content_text" name="post_content" form="post_form", placeholder="Write a funny post" maxlength="140"></textarea><br>
     <input id="post_button" type="submit" value="Submit post" ng-hide="is_authenticated == 'False'" ng-hide="hide_button" ng-click="createPost($event)">
 </form>
 <p ng-hide="is_authenticated == 'True'" style="color:aliceblue"> Please <a href="{% url 'homepage:index' %}">Sign up</a> or <a href="{% url 'login' %}">Log In</a> to write a post </p>
@@ -41,4 +41,5 @@
 
 {% endblock posts_feed %}
 
+<br>
 </body>
