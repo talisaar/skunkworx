@@ -1,7 +1,8 @@
 /* define variables for the primary colors */
 $primary_1: #000000;
 $primary_2: #ffffff;
-
+$input_placeholder: #837b7b;
+$link_color: rgb(56, 174, 221);
 /* use the variables */
 
 
@@ -12,6 +13,7 @@ $primary_2: #ffffff;
 
 *,
 *::before,
+
 *::after {
   box-sizing: inherit;
 }
@@ -37,7 +39,7 @@ td {
 }
 
 a {
-  color: blue;
+  color: $link_color;
 }
 
 table, th, td {
@@ -100,22 +102,32 @@ td:first-child + td{
   width: 70%;
 }
 
+input {
+  margin-bottom: 5px;
+  appearance: none; // Should take care of webkit styles getting in the way
+  -webkit-appearance: none !important;
+  border: white;
+}
+
 input::placeholder {
-  color: red;
+  color: $input_placeholder;
+  font-size: 16px;
 }
 
 input[type="text"] { 
-  color: red;
+  color: $input_placeholder;
 
  }
 input[type="password"] { 
-  color: red;
+  color: $input_placeholder;
 
  }
 input[type="submit"] { 
-  appearance: None; // Should take care of webkit styles getting in the way
-  color: orange;
+  appearance: none; // Should take care of webkit styles getting in the way
+  -webkit-appearance: none !important;
+  color: white;
   background-color: gray;
+  font-size: 16px;
 
  }
 

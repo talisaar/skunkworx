@@ -1,18 +1,18 @@
 /* define variables for the primary colors */
 /* use the variables */
-/* line 9, ../../scss/style.scss */
+/* line 10, ../../scss/style.scss */
 :root {
   box-sizing: border-box;
 }
 
-/* line 13, ../../scss/style.scss */
+/* line 14, ../../scss/style.scss */
 *,
 *::before,
 *::after {
   box-sizing: inherit;
 }
 
-/* line 22, ../../scss/style.scss */
+/* line 24, ../../scss/style.scss */
 body {
   font-family: courier;
   background-color: #000000;
@@ -21,57 +21,57 @@ body {
   margin: 10px;
 }
 
-/* line 30, ../../scss/style.scss */
+/* line 32, ../../scss/style.scss */
 p, h1, h2, h3, ul, li {
   color: #ffffff;
   text-align: center;
 }
 
-/* line 35, ../../scss/style.scss */
+/* line 37, ../../scss/style.scss */
 td {
   color: #ffffff;
 }
 
-/* line 39, ../../scss/style.scss */
+/* line 41, ../../scss/style.scss */
 a {
-  color: blue;
+  color: #38aedd;
 }
 
-/* line 43, ../../scss/style.scss */
+/* line 45, ../../scss/style.scss */
 table, th, td {
   border: None;
 }
 
-/* line 47, ../../scss/style.scss */
+/* line 49, ../../scss/style.scss */
 table {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* line 52, ../../scss/style.scss */
+/* line 54, ../../scss/style.scss */
 form {
   text-align: center;
 }
 
-/* line 56, ../../scss/style.scss */
+/* line 58, ../../scss/style.scss */
 textarea {
   width: 60%;
   height: 100px;
 }
 
-/* line 60, ../../scss/style.scss */
+/* line 62, ../../scss/style.scss */
 input, table {
   width: 80%;
   height: 50px;
 }
 
-/* line 67, ../../scss/style.scss */
+/* line 69, ../../scss/style.scss */
 input {
   padding-left: 15px;
   padding-right: 30px;
 }
 
-/* line 72, ../../scss/style.scss */
+/* line 74, ../../scss/style.scss */
 table {
   border-style: solid;
   border-color: #ffffff;
@@ -82,12 +82,12 @@ table {
   padding-bottom: 30px;
 }
 
-/* line 83, ../../scss/style.scss */
+/* line 85, ../../scss/style.scss */
 #login_button {
   width: 80%;
 }
 
-/* line 87, ../../scss/style.scss */
+/* line 89, ../../scss/style.scss */
 #post_button {
   width: 10%;
   float: right;
@@ -96,40 +96,51 @@ table {
   height: 30px;
 }
 
-/* line 94, ../../scss/style.scss */
+/* line 96, ../../scss/style.scss */
 td:first-child {
   width: 30%;
   text-align: right;
 }
 
-/* line 99, ../../scss/style.scss */
+/* line 101, ../../scss/style.scss */
 td:first-child + td {
   width: 70%;
 }
 
-/* line 103, ../../scss/style.scss */
+/* line 105, ../../scss/style.scss */
+input {
+  margin-bottom: 5px;
+  appearance: none;
+  -webkit-appearance: none !important;
+  border: white;
+}
+
+/* line 112, ../../scss/style.scss */
 input::placeholder {
-  color: red;
+  color: #837b7b;
+  font-size: 16px;
 }
 
-/* line 107, ../../scss/style.scss */
+/* line 117, ../../scss/style.scss */
 input[type="text"] {
-  color: red;
+  color: #837b7b;
 }
 
-/* line 111, ../../scss/style.scss */
+/* line 121, ../../scss/style.scss */
 input[type="password"] {
-  color: red;
+  color: #837b7b;
 }
 
-/* line 115, ../../scss/style.scss */
+/* line 125, ../../scss/style.scss */
 input[type="submit"] {
-  appearance: None;
-  color: orange;
+  appearance: none;
+  -webkit-appearance: none !important;
+  color: white;
   background-color: gray;
+  font-size: 16px;
 }
 
-/* line 122, ../../scss/style.scss */
+/* line 134, ../../scss/style.scss */
 .start_section {
   padding-top: 15px;
   padding-bottom: 15px;
