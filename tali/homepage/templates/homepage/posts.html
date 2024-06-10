@@ -11,12 +11,12 @@
 
 <form id = "logout_form" action="{% url 'logout' %}" method="post">
     {% csrf_token %}
-    <button id="logout_button" type="submit" ng-hide="is_authenticated == 'False'">Logout</button>
+    <button id="logout_button" type="submit" ng-hide="is_authenticated == 'False'">Log out</button>
     <br>
     <br>
 </form>
 
-<p ng-hide="is_authenticated == 'False'">Hi {{ user.first_name }}, post something:</p>
+<p ng-hide="is_authenticated == 'False'">{{ user.first_name }}, post something skunky:</p>
 
 <form id="post_form" method="POST">
     {% csrf_token %}
@@ -27,7 +27,7 @@
 
 <br>
 <br>
-<h3>SKunKw0rx feed</h3>
+<h1>SKunKw0rx feed</h1>
 <br>
 
 {% block posts_feed %}

@@ -107,6 +107,8 @@ input {
   appearance: none; // Should take care of webkit styles getting in the way
   -webkit-appearance: none !important;
   border: white;
+  font-size: 16px;
+  text-colo: black;
 }
 
 input::placeholder {
@@ -115,11 +117,11 @@ input::placeholder {
 }
 
 input[type="text"] { 
-  color: $input_placeholder;
+  color: black;
 
  }
 input[type="password"] { 
-  color: $input_placeholder;
+  color: black;
 
  }
 input[type="submit"] { 
@@ -134,4 +136,35 @@ input[type="submit"] {
  .start_section {
   padding-top: 15px;
   padding-bottom: 15px;
+ }
+
+ #logout_button {
+  background: none!important;
+  border: none;
+  padding: 0!important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: white;
+  font-size: 16px;
+  text-decoration: underline;
+  cursor: pointer;
+  float: right;
+  margin-right: 20%;
+ }
+
+ textarea {
+  padding: 10px;
+ }
+
+ #post_button {
+  margin-top: 5px;
+  color: white;
+  background-color: gray;
+ }
+
+ ul {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
  }

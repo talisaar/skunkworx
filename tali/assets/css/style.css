@@ -113,25 +113,27 @@ input {
   appearance: none;
   -webkit-appearance: none !important;
   border: white;
+  font-size: 16px;
+  text-colo: black;
 }
 
-/* line 112, ../../scss/style.scss */
+/* line 114, ../../scss/style.scss */
 input::placeholder {
   color: #837b7b;
   font-size: 16px;
 }
 
-/* line 117, ../../scss/style.scss */
+/* line 119, ../../scss/style.scss */
 input[type="text"] {
-  color: #837b7b;
+  color: black;
 }
 
-/* line 121, ../../scss/style.scss */
+/* line 123, ../../scss/style.scss */
 input[type="password"] {
-  color: #837b7b;
+  color: black;
 }
 
-/* line 125, ../../scss/style.scss */
+/* line 127, ../../scss/style.scss */
 input[type="submit"] {
   appearance: none;
   -webkit-appearance: none !important;
@@ -140,8 +142,43 @@ input[type="submit"] {
   font-size: 16px;
 }
 
-/* line 134, ../../scss/style.scss */
+/* line 136, ../../scss/style.scss */
 .start_section {
   padding-top: 15px;
   padding-bottom: 15px;
+}
+
+/* line 141, ../../scss/style.scss */
+#logout_button {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  /*optional*/
+  font-family: arial, sans-serif;
+  /*input has OS specific font-family*/
+  color: white;
+  font-size: 16px;
+  text-decoration: underline;
+  cursor: pointer;
+  float: right;
+  margin-right: 20%;
+}
+
+/* line 156, ../../scss/style.scss */
+textarea {
+  padding: 10px;
+}
+
+/* line 160, ../../scss/style.scss */
+#post_button {
+  margin-top: 5px;
+  color: white;
+  background-color: gray;
+}
+
+/* line 166, ../../scss/style.scss */
+ul {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
 }
