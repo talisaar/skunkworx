@@ -25,7 +25,7 @@
     <div style="width: 100%; height: 30px;"><a style="float: right; margin-right: 10%;"href="{% url 'login' %}">Log in</a> </div>
     <img id="logo" src ="{% static 'img/pepe.jpg' %}" style="display: block; margin: auto; height: 100px; width: 100px;">
     
-    <h1> Sign up to SKunKw0rx</h1>
+    <h2> Sign up to SKunKw0rx</h2>
     <form id="signup_form" method="POST" ng-app="signUpApp" ng-controller="signUpCtrl" autocomplete="off">
         {% csrf_token %}
         <input autocomplete="false" name="hidden" type="text" style="display:none;">
@@ -49,7 +49,7 @@
     <ul>
     <li>Django on backend</li>
     <li>Angular JS on front &#40;+DRF&#41;</li>
-    <li>Served from ec2 with Gunicorn & NGINX</li>
+    <li>Served on ec2 w&#47;Gunicorn & NGINX</li>
     <li>AWS: route53 & elastic IP</li>
     <li>Postgresql db</li>
     <li>Compass CSS</li>

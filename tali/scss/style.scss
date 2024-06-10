@@ -34,6 +34,17 @@ p, h1, h2, h3, ul, li {
   text-align: center;
 }
 
+p, li {
+  font-size: 20px;
+}
+
+ul {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+
 td {
   color: $primary_2;
 }
@@ -55,10 +66,7 @@ form {
   text-align: center; // Aligns the inputs to center
 }
 
-textarea {
-  width: 60%;
-  height: 100px;
-}
+
 input, table {
   // appearance: None;
   width: 80%;
@@ -84,6 +92,8 @@ table {
 
 #login_button {
   width: 80%;
+  background-color: $link_color;
+
 }
 
 #post_button {
@@ -92,7 +102,9 @@ table {
   margin-right: 20%;
   color: #000000;
   height: 30px;
+  background-color: $link_color;
 }
+
 td:first-child {
   width: 30%;
   text-align: right;
@@ -108,7 +120,7 @@ input {
   -webkit-appearance: none !important;
   border: white;
   font-size: 16px;
-  text-colo: black;
+  color: black;
 }
 
 input::placeholder {
@@ -128,7 +140,7 @@ input[type="submit"] {
   appearance: none; // Should take care of webkit styles getting in the way
   -webkit-appearance: none !important;
   color: white;
-  background-color: gray;
+  background-color: $link_color;
   font-size: 16px;
 
  }
@@ -153,18 +165,93 @@ input[type="submit"] {
   margin-right: 20%;
  }
 
- textarea {
-  padding: 10px;
- }
 
- #post_button {
-  margin-top: 5px;
-  color: white;
-  background-color: gray;
- }
+ /* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
 
- ul {
-  width: 40%;
-  margin-left: auto;
-  margin-right: auto;
- }
+  ul {
+    width: 80%;
+  }
+
+  textarea {
+    width: 90%;
+    height: 150px;
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  #post_button {
+    width: 120px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 5%;
+    color: $primary_2;
+    height: 30px;
+    background-color: $link_color;
+  }
+  
+  
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  ul {
+    width: 80%;
+  }
+
+  textarea {
+    width: 90%;
+    height: 150px;
+    font-size: 20px;
+    padding: 10px;
+  }
+
+  #post_button {
+    width: 120px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 5%;
+    color: $primary_2;
+    height: 30px;
+    background-color: $link_color;
+  }
+  
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+  ul {
+    width: 40%;
+  }
+
+  textarea {
+    width: 60%;
+    height: 100px;
+    font-size: 16px;
+    padding: 10px;
+  }
+  
+  #post_button {
+    width: 120px;
+    float: right;
+    margin-top: 5px;
+    margin-right: 20%;
+    color: $primary_2;
+    height: 30px;
+    background-color: $link_color;
+  }
+  
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
