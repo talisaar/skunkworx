@@ -25,7 +25,7 @@
     <div style="width: 100%; height: 30px;"><a style="float: right; margin-right: 10%;"href="{% url 'login' %}">Log in</a> </div>
     <img id="logo" src ="{% static 'img/pepe.jpg' %}" style="display: block; margin: auto; height: 100px; width: 100px;">
     
-    <h1> Welcome to SKunKw0rx</h1>
+    <h1> Sign up to SKunKw0rx</h1>
     <form id="signup_form" method="POST" ng-app="signUpApp" ng-controller="signUpCtrl" autocomplete="off">
         {% csrf_token %}
         <input autocomplete="false" name="hidden" type="text" style="display:none;">
