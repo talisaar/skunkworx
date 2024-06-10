@@ -25,13 +25,6 @@ from homepage.serializers import UserSerializer, PostSerializer
 
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
-
-def test(request):
-    return render(request, "homepage/test.html", {})
-
-def test2(request):
-    return render(request, "homepage/test2.html", {})
-
 def index(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect('/posts')

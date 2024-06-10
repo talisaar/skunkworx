@@ -336,7 +336,7 @@ input[type="submit"] {
 
   /* line 315, ../../scss/style.scss */
   #login_form {
-    width: 80%;
+    width: 100%;
   }
 
   /* line 319, ../../scss/style.scss */
@@ -357,12 +357,12 @@ input[type="submit"] {
 
   /* line 331, ../../scss/style.scss */
   input {
-    width: 100%;
+    width: 60%;
   }
 
   /* line 335, ../../scss/style.scss */
   #login_button {
-    width: 100%;
+    width: 60%;
   }
 }
 /* Large devices (laptops/desktops, 992px and up) */
