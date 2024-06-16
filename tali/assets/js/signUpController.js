@@ -60,6 +60,7 @@ signUpApp.controller("signUpCtrl", [
                     $scope.url_str = 'check_email/?email=' + $scope.email
                     $window.location = $window.location.href + $scope.url_str
                   }).catch(function(error)  {
+                    $log.info("IN CATCH CONDITION")
                     $scope.hide_button = false
                     $scope.hide_processing_text = true
 
