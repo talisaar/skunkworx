@@ -21,7 +21,10 @@
 </head>
 
 <body>
-    
+    {% if error %}
+    <p>THERE WAS AN ERROR!</p>
+    {% endif %}
+
     <div style="width: 100%; height: 30px;"><a style="float: right; margin-right: 10%;"href="{% url 'login' %}">Log in</a> </div>
     <img id="logo" src ="{% static 'img/pepe.jpg' %}" style="display: block; margin: auto; height: 100px; width: 100px;">
     
@@ -36,6 +39,7 @@
         <input type="password" id="password_confirm" ng-model="password_confirm" placeholder="repeat password" required="required" data-lpignore="true" oninput="check()"/>
         <input type="submit" value="Sign up" ng-hide="hide_button" ng-click="signUp($event)">
         <p ng-hide="hide_processing_text" [disabled]="!ngForm.valid"> Signing up (takes a min...)</p>
+        <p style="font-size: small; color: red;"ng-bind="error_msg"></p>
     </form>
     <p class="start_section">Already a member? <a href="{% url 'login' %}">Log In</a></p>
     <hr>

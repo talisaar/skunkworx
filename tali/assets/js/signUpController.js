@@ -14,9 +14,10 @@ signUpApp.controller("signUpCtrl", [
     $scope.hide_processing_text = true
     $scope.ready = false
     $scope.newUser = {}
-
+    $scope.error_msg = ""
     $scope.signUp = function($event){
-
+        
+        $scope.error_msg = ""
         if ($scope.email && $scope.firstname && $scope.lastname && $scope.password && $scope.password_confirm) {
             // Verify passwords match 
             $log.info("all fields exist!")
@@ -58,7 +59,17 @@ signUpApp.controller("signUpCtrl", [
                     // Display check_email screen and pass email address as param
                     $scope.url_str = 'check_email/?email=' + $scope.email
                     $window.location = $window.location.href + $scope.url_str
-                  });               
+                  }).catch(function(error)  {
+                    $scope.hide_button = false
+                    $scope.hide_processing_text = true
+
+                    if (error.data.includes("duplicate key value violates unique constraint")) {
+                        $scope.error_msg = 'email already exists'
+                    }
+                    else {
+                        $scope.error_msg = 'Oh skunks! Something went wrong'
+                    } 
+                    })     
     };
 
 }]);

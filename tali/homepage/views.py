@@ -10,7 +10,7 @@ from email.mime.text import MIMEText
 import smtplib
 from email.mime.multipart import MIMEMultipart
 
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
 
 from django_registration.backends.activation.views import RegistrationView, ActivationView
 from django.contrib.auth import login, logout
@@ -26,6 +26,9 @@ from homepage.serializers import UserSerializer, PostSerializer
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 def index(request):
+    logger = logging.getLogger('logger')
+    logger.info(request)
+
     if request.user.is_authenticated:
         return HttpResponseRedirect('/posts')
     else:
@@ -86,18 +89,22 @@ class myUserViewSet(viewsets.ModelViewSet):
         email = request.data["email"]
         password = request.data["password"]
         username= request.data["username"]
-        inactive_user = myUser.objects.create_user(
-            username=username, 
-            email=email, 
-            password=password,
-            first_name=first_name,
-            last_name=last_name,
-            is_active=False)
+        try:
+            inactive_user = myUser.objects.create_user(
+                username=username, 
+                email=email, 
+                password=password,
+                first_name=first_name,
+                last_name=last_name,
+                is_active=False)
+        except Exception as e:
+            return HttpResponseBadRequest(e)            
         try:
             print("sending email")
             self.send_activation_email(inactive_user)
-        except:
-            pass
+        except Exception as e:
+            return HttpResponseBadRequest(e)
+
         return HttpResponse()
     
     def send_activation_email(self, new_user):
