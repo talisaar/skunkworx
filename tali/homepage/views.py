@@ -99,50 +99,14 @@ class myUserViewSet(viewsets.ModelViewSet):
                 is_active=False)
         except Exception as e:
             return HttpResponseBadRequest(e)            
-        try:
-            print("sending email")
-            self.send_activation_email(inactive_user)
-        except Exception as e:
-            return HttpResponseBadRequest(e)
+        # try:
+        #     # print("sending email")
+        #     # self.send_activation_email(inactive_user)
+        # except Exception as e:
+        #     return HttpResponseBadRequest(e)
 
         return HttpResponse()
     
-    def send_activation_email(self, new_user):
-        sender_email = 'tali@skunkworx.co'
-        receiver_email = new_user.email
-        activation_key = RegistrationView().get_activation_key(new_user)
-
-        activation_link = 'www.skunkworx.co/activate/{activation_key}'.format(activation_key=activation_key)
-
-
-        logger = logging.getLogger('activation_email')
-        logger.warning(f'activation link is: {activation_link}')
-        logger.warning(f'sending email to {receiver_email}')
-
-        message = MIMEMultipart("alternative")
-        message["Subject"] = "Activate your SkunkW0rX account"
-        message["From"] = sender_email
-        message["To"] = receiver_email
-        name = new_user.first_name
-        body = """
-        Hello, {0}.
-        Pls click this link to activate your skunkworx account:
-        
-        {1}
-
-        Love, Tali
-        """.format(name, activation_link)
-
-        message.attach(MIMEText(body, 'plain'))
-        server = smtplib.SMTP_SSL(settings.SMTP_ENDPOINT, port=settings.TLS_WRAPPER_PORT)
-        server.set_debuglevel(1)
-        server.connect(settings.SMTP_ENDPOINT, port=settings.TLS_WRAPPER_PORT)
-        server.login(settings.SMTP_USER_NAME, settings.SMTP_PASSWORD)
-        txt = message.as_string()
-        server.sendmail(sender_email, receiver_email, txt)
-
-        # Send email ends here
-
 
 class TalisActivationView(ActivationView):
 
@@ -172,6 +136,53 @@ class PostViewSet(viewsets.ModelViewSet):
         serializer.save(owner=owner)
 
 
+from rest_framework.decorators import api_view
+@api_view(["POST"])
+def send_activation(request):
+    if request.method =='POST':
+        try:
+            logger = logging.getLogger('poop')
+            logger.warning(f'SEND ACTIVATION view Woot!: {request.data}')
+            email = request.data.get('email')
+            new_user = myUser.objects.get(email=email)
 
 
+            sender_email = 'tali@skunkworx.co'
+            receiver_email = new_user.email
+            activation_key = RegistrationView().get_activation_key(new_user)
 
+            activation_link = 'www.skunkworx.co/activate/{activation_key}'.format(activation_key=activation_key)
+
+
+            logger = logging.getLogger('activation_email')
+            logger.warning(f'activation link is: {activation_link}')
+            logger.warning(f'sending email to {receiver_email}')
+
+            message = MIMEMultipart("alternative")
+            message["Subject"] = "Activate your SkunkW0rX account"
+            message["From"] = sender_email
+            message["To"] = receiver_email
+            name = new_user.first_name
+            body = """
+            Hello, {0}.
+            Pls click this link to activate your skunkworx account:
+            
+            {1}
+
+            Love, Tali
+            """.format(name, activation_link)
+
+            message.attach(MIMEText(body, 'plain'))
+            server = smtplib.SMTP_SSL(settings.SMTP_ENDPOINT, port=settings.TLS_WRAPPER_PORT)
+            server.set_debuglevel(1)
+            server.connect(settings.SMTP_ENDPOINT, port=settings.TLS_WRAPPER_PORT)
+            server.login(settings.SMTP_USER_NAME, settings.SMTP_PASSWORD)
+            txt = message.as_string()
+            server.sendmail(sender_email, receiver_email, txt)
+
+            # # Send email ends here
+        except Exception as e:
+            return HttpResponseBadRequest(e)
+
+    return HttpResponse()
+    

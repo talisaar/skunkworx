@@ -2,15 +2,16 @@
 
 <head>
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script type="text/javascript" src="{% static 'js/signUpController.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/js.js' %}"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-<body ng-controller="signUpCtrl">
+<body ng-app="signUpApp" ng-controller="signUpCtrl">
     <h1 class="start_section"> Check your email!</h1>
     <p class="start_section"> Activation email sent to:</p> 
-    <p>{{ email }}</p>
+    <p ng-init="send_activation('{{ email }}')">{{ email }}</p>
     <p class="start_section"> Wrong email? <a href="/">Start over</a>. </p>
     
 </body>
-

@@ -20,14 +20,14 @@ signUpApp.controller("signUpCtrl", [
         $scope.error_msg = ""
         if ($scope.email && $scope.firstname && $scope.lastname && $scope.password && $scope.password_confirm) {
             // Verify passwords match 
-            $log.info("all fields exist!")
+            $log.info("all required fields exist!")
             if (($scope.password) != ($scope.password_confirm)) {
                 $log.info("detected mismatching passwords")
                 return
             }
         }
         else {
-            $log.info("else condition")
+            $log.info("missing fields")
             return
         }
         
@@ -60,7 +60,6 @@ signUpApp.controller("signUpCtrl", [
                     $scope.url_str = 'check_email/?email=' + $scope.email
                     $window.location = $window.location.href + $scope.url_str
                   }).catch(function(error)  {
-                    $log.info("IN CATCH CONDITION")
                     $scope.hide_button = false
                     $scope.hide_processing_text = true
 
@@ -71,6 +70,20 @@ signUpApp.controller("signUpCtrl", [
                         $scope.error_msg = 'Oh skunks! Something went wrong'
                     } 
                     })     
+    };
+    $scope.send_activation = function(email){
+        data = {}
+        data["email"] = email
+
+        $http({
+            url: "../send_activation/",
+            method: "POST",
+            data: data,
+            headers: {"Content-Type": "application/json"}
+        }).catch(function(error) {
+            $log.info("Something went wrong with sending activation email")
+        })
+
     };
 
 }]);

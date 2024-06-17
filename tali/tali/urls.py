@@ -25,6 +25,7 @@ router = DefaultRouter()
 router.register(r'users', views.myUserViewSet, basename='myuser')
 router.register(r'posts', views.PostViewSet, basename='Post')
 
+
 urlpatterns = [
     # path receives 4 args: 'route':str, 'view', 'kwargs':dict, 'name' - unambiguous refrence (see example in polls.urls.py)
     path("", include("homepage.urls")),
@@ -32,5 +33,5 @@ urlpatterns = [
     path('login/', include('django.contrib.auth.urls')),
     path('api/', include(router.urls)),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-
+    
 ]
