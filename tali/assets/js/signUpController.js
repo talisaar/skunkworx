@@ -47,6 +47,7 @@ signUpApp.controller("signUpCtrl", [
 
         // Post data to create user 
 
+        $log.info("posting user data to api/users endpoint")
         $http({
                     url: "api/users/",
                     method: "POST",
@@ -71,19 +72,4 @@ signUpApp.controller("signUpCtrl", [
                     } 
                     })     
     };
-    $scope.send_activation = function(email){
-        data = {}
-        data["email"] = email
-
-        $http({
-            url: "../send_activation/",
-            method: "POST",
-            data: data,
-            headers: {"Content-Type": "application/json"}
-        }).catch(function(error) {
-            $log.info("Something went wrong with sending activation email")
-        })
-
-    };
-
 }]);

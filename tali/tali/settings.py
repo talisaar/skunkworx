@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    # 'kombu.transport.django', #rabbitmq
+    'celery'
 ]
 
 MIDDLEWARE = [
@@ -186,3 +188,7 @@ REGISTRATION_OPEN = True
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/login'
+
+
+# Sets up rabbitMQ server as broker for celery queue
+BROKER_URL = os.environ.get('RABBITMQ_URL', 'amqp://guest:guest@localhost:5672/')

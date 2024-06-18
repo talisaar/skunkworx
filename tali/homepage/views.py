@@ -1,26 +1,19 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import render
 import logging
 import os.path
+
 from django.contrib.auth.views import LoginView
 from django.contrib import messages
-
-from django.conf import settings
-
-from email.mime.text import MIMEText
-import smtplib
-from email.mime.multipart import MIMEMultipart
-
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseBadRequest
-
 from django_registration.backends.activation.views import RegistrationView, ActivationView
 from django.contrib.auth import login, logout
 
 from rest_framework import viewsets
-from rest_framework.renderers import JSONRenderer
-from rest_framework.parsers import JSONParser
 
 from homepage.models import myUser, Post
 from homepage.serializers import UserSerializer, PostSerializer
+
+from homepage.tasks import add, send_activation_task
 
 
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
@@ -90,6 +83,8 @@ class myUserViewSet(viewsets.ModelViewSet):
         password = request.data["password"]
         username= request.data["username"]
         try:
+
+            logger.info("in try")
             inactive_user = myUser.objects.create_user(
                 username=username, 
                 email=email, 
@@ -99,14 +94,13 @@ class myUserViewSet(viewsets.ModelViewSet):
                 is_active=False)
         except Exception as e:
             return HttpResponseBadRequest(e)            
-        # try:
-        #     # print("sending email")
-        #     # self.send_activation_email(inactive_user)
-        # except Exception as e:
-        #     return HttpResponseBadRequest(e)
+        try:
+            logger.info("sending activation")
+            send_activation_email(inactive_user)
+        except Exception as e:
+            return HttpResponseBadRequest(e)
 
         return HttpResponse()
-    
 
 class TalisActivationView(ActivationView):
 
@@ -135,54 +129,15 @@ class PostViewSet(viewsets.ModelViewSet):
             owner = myUser.objects.get(email=self.request.user.email)
         serializer.save(owner=owner)
 
+def send_activation_email(inactive_user: myUser):
+    logger = logging.getLogger('logger')
+    logger.info("HELLO")
+    sender_email = 'tali@skunkworx.co'
+    receiver_email = inactive_user.email
+    first_name = inactive_user.first_name
+    activation_key = RegistrationView().get_activation_key(inactive_user)
+    activation_link = 'www.skunkworx.co/activate/{activation_key}'.format(activation_key=activation_key)
 
-from rest_framework.decorators import api_view
-@api_view(["POST"])
-def send_activation(request):
-    if request.method =='POST':
-        try:
-            logger = logging.getLogger('poop')
-            logger.warning(f'SEND ACTIVATION view Woot!: {request.data}')
-            email = request.data.get('email')
-            new_user = myUser.objects.get(email=email)
-
-
-            sender_email = 'tali@skunkworx.co'
-            receiver_email = new_user.email
-            activation_key = RegistrationView().get_activation_key(new_user)
-
-            activation_link = 'www.skunkworx.co/activate/{activation_key}'.format(activation_key=activation_key)
-
-
-            logger = logging.getLogger('activation_email')
-            logger.warning(f'activation link is: {activation_link}')
-            logger.warning(f'sending email to {receiver_email}')
-
-            message = MIMEMultipart("alternative")
-            message["Subject"] = "Activate your SkunkW0rX account"
-            message["From"] = sender_email
-            message["To"] = receiver_email
-            name = new_user.first_name
-            body = """
-            Hello, {0}.
-            Pls click this link to activate your skunkworx account:
-            
-            {1}
-
-            Love, Tali
-            """.format(name, activation_link)
-
-            message.attach(MIMEText(body, 'plain'))
-            server = smtplib.SMTP_SSL(settings.SMTP_ENDPOINT, port=settings.TLS_WRAPPER_PORT)
-            server.set_debuglevel(1)
-            server.connect(settings.SMTP_ENDPOINT, port=settings.TLS_WRAPPER_PORT)
-            server.login(settings.SMTP_USER_NAME, settings.SMTP_PASSWORD)
-            txt = message.as_string()
-            server.sendmail(sender_email, receiver_email, txt)
-
-            # # Send email ends here
-        except Exception as e:
-            return HttpResponseBadRequest(e)
-
-    return HttpResponse()
-    
+    logger = logging.getLogger('activation_email')
+    logger.warning(f'activation link is: {activation_link}')
+    send_activation_task.delay_on_commit(sender_email, receiver_email, first_name, activation_link)
