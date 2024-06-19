@@ -39,8 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    # 'kombu.transport.django', #rabbitmq
-    'celery'
+    'celery',
+    'django_celery_beat'
 ]
 
 MIDDLEWARE = [
