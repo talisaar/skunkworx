@@ -7,3 +7,4 @@ django-celery-beat==2.6.0
 cron-descriptor==1.4.3
 django-timezone-field==6.1.0
 python-crontab==3.1.0
+supervisor==4.2.5
