@@ -5,7 +5,7 @@ import smtplib
 from time import sleep
 from celery import shared_task
 from django.conf import settings
-
+import os
 from email.mime.text import MIMEText
 import smtplib
 from email.mime.multipart import MIMEMultipart
@@ -44,8 +44,8 @@ def send_activation_task(sender_email, receiver_email, first_name, activation_li
     logger = logging.getLogger('logger')
     logger.info(f'sending activation email to {receiver_email}')
     logger.info(f'USER {settings.USER}')
-    logger.info(f'SMTP_USER_NAME {settings.SMTP_USER_NAME}')
-    logger.info(f'SMTP_PASSWORD {settings.SMTP_PASSWORD}')
+    logger.info(f'SMTP_USER_NAME {os.environ.get('SMTP_USER_NAME')}')
+    logger.info(f'SMTP_PASSWORD {os.environ.get('SMTP_PASSWORD')}')
 
 
     message = MIMEMultipart("alternative")
@@ -65,7 +65,7 @@ def send_activation_task(sender_email, receiver_email, first_name, activation_li
     server = smtplib.SMTP_SSL(settings.SMTP_ENDPOINT, port=settings.TLS_WRAPPER_PORT)
     server.set_debuglevel(1)
     server.connect(settings.SMTP_ENDPOINT, port=settings.TLS_WRAPPER_PORT)
-    server.login(settings.SMTP_USER_NAME, settings.SMTP_PASSWORD)
+    server.login(os.environ.get('SMTP_USER_NAME'), os.environ.get('SMTP_PASSWORD'))
     txt = message.as_string()
     server.sendmail(sender_email, receiver_email, txt)
     
