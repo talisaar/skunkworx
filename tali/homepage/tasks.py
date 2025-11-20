@@ -43,10 +43,6 @@ def xsum(numbers):
 def send_activation_task(sender_email, receiver_email, first_name, activation_link):
     logger = logging.getLogger('logger')
     logger.info(f'sending activation email to {receiver_email}')
-    logger.info(f'USER {settings.USER}')
-    logger.info(f'SMTP_USER_NAME {os.environ.get("SMTP_USER_NAME")}')
-    logger.info(f'SMTP_PASSWORD {os.environ.get("SMTP_PASSWORD")}')
-
 
     message = MIMEMultipart("alternative")
     message["Subject"] = "Activate your SkunkW0rX account"
