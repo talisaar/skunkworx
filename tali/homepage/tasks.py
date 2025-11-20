@@ -2,6 +2,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import logging
 import smtplib
+from time import sleep
 from celery import shared_task
 from django.conf import settings
 
@@ -14,6 +15,12 @@ from email.mime.multipart import MIMEMultipart
 def add(x, y):
     return x + y
 
+@shared_task
+def add_wait(wait, x, y):
+    print(f'waiting {wait} seconds')
+    sleep(wait)
+    print(f'DONE waiting {wait} seconds')
+    return x + y
 
 @shared_task
 def mul(x, y):

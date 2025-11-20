@@ -164,7 +164,10 @@ STATICFILES_DIRS = (
 
 # copied from ses_with_smptlib.py #
 
-from .secrets import SMTP_USER_NAME, SMTP_PASSWORD
+import os
+
+SMTP_USER_NAME = os.environ.get("SMTP_USER_NAME")
+SMTP_PASSWORD = os.environ.get("SMTP_PASSWORD")
 
 IAM_USER_NAME = "tali@skunkworx.co"
 SMTP_ENDPOINT = "email-smtp.us-west-2.amazonaws.com"
