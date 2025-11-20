@@ -19,10 +19,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%hj$-%g1&h2esx-#_@)9papm=9cuybjsu)%ay*i6=mh=lo+s)o'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '13.49.149.193', 'skunkworx.co', 'www.skunkworx.co', 'localhost']
@@ -181,8 +178,6 @@ EMAIL_PORT = TLS_WRAPPER_PORT
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0l6lb8r%3kclm=odn9c#=w^ku62v-tps@i(*wvcdz(-4vw&jcq'
 
 
 ACCOUNT_ACTIVATION_DAYS = 3
